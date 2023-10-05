@@ -1,0 +1,69 @@
+.viewport{
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.box{
+    width: 60%;
+    height: 542px;
+    border: 1px solid black;
+    margin-top: 80px;
+    border-radius: 15px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+.contents{
+    width: 50%;
+    height: 100%;
+    border: 1px solid red;
+    position: absolute;
+    right: 0;
+    padding-top: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.wrap{
+    justify-content: center;
+    align-items: center;
+    height: 15%;
+    width: 90%;
+    margin-left: 50px;
+}
+.input{
+    height: 49px;
+    border-radius: 5px;
+    width: 60%;
+    margin-top: -10px;
+}
+.input2{
+    height: 49px;
+    border-radius: 5px;
+    width: 75%;
+    margin-top: -10px;
+}
+.button{
+    height: 49px;
+    width: 20%;
+    background-color: lightgray;
+    color: white;
+    font-weight: 600;
+    font-size: medium;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-top: -10px;
+}
+.startBtn{
+    height: 51px;
+    width: 40%;
+    border-radius: 5px;
+    background-color: lightgray;
+    color: white;
+    font-size: large;
+    font-weight: 600;
+    margin-left: 130px;
+    margin-top: 30px;
+}
