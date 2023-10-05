@@ -1,19 +1,22 @@
 import styles from './Login.module.css';
+import sample from './img/sample.png';
 
 function Login(){
     return(
         <>
         <div className={styles.viewport}>
             <div className={styles.box}>
-                <img></img>
+                <img src={sample} alt=''/>
                 <div className={styles.contents}>
                     <div className={styles.header}>
+                        <div className={styles.headerwrap}>
                         <p>Don't have an account?</p>
                         <button className={styles.signUpBtn}>Sign Up</button>
+                        </div>
                     </div>
                     <div className={styles.main}>
-                        <input type='emil' className={styles.email} />Enter Your Email
-                        <input type='password' className={styles.password} />Enter Your Password
+                        <input type='emil' className={styles.input} placeholder='Enter Your Email' />
+                        <input type='password' className={styles.input} placeholder='Enter Your Password'/>
                     </div>
                     <div className={styles.footer}>
                         <button className={styles.signInBtn}>Sign In</button>
