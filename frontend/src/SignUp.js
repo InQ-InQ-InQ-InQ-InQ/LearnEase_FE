@@ -30,9 +30,9 @@ function SignUp(){
                         <p>Nickname</p>
                         <input type='text' className={styles.input2}/>
                     </div>
-                    <div>
+                   
                     <button className={styles.startBtn}>Get Started!</button>
-                    </div>
+                   
                 </div>
             </div>
         </div>

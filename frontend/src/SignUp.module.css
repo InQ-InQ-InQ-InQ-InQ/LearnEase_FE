@@ -31,19 +31,21 @@
     align-items: center;
     height: 15%;
     width: 90%;
-    margin-left: 50px;
+    margin-left: 70px;
 }
 .input{
     height: 49px;
     border-radius: 5px;
-    width: 60%;
+    width: 50%;
     margin-top: -10px;
+    padding-left: 10px;
 }
 .input2{
     height: 49px;
     border-radius: 5px;
-    width: 75%;
+    width: 70%;
     margin-top: -10px;
+    padding-left: 10px;
 }
 .button{
     height: 49px;

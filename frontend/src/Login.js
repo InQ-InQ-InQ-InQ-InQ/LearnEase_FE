@@ -1,17 +1,23 @@
+import { useState } from 'react';
 import styles from './Login.module.css';
+import SignUp from './SignUp';
 import sample from './img/sample.png';
 
 function Login(){
+
     return(
         <>
         <div className={styles.viewport}>
             <div className={styles.box}>
                 <img src={sample} alt=''/>
                 <div className={styles.contents}>
+                    
                     <div className={styles.header}>
                         <div className={styles.headerwrap}>
                         <p>Don't have an account?</p>
+                        <a href='/signup' >
                         <button className={styles.signUpBtn}>Sign Up</button>
+                        </a>
                         </div>
                     </div>
                     <div className={styles.main}>
