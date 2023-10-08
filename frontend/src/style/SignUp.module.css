@@ -1,0 +1,75 @@
+.viewport {
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.box {
+  width: 60%;
+  height: 542px;
+  border: 1px solid black;
+  margin-top: 80px;
+  border-radius: 15px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+.contents {
+  width: 50%;
+  height: 100%;
+  border: 1px solid red;
+  position: relative;
+  right: 0;
+  padding-top: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.wrap {
+  justify-content: center;
+  align-items: center;
+  height: 15%;
+  width: 90%;
+  margin-left: 70px;
+}
+.input {
+  height: 50px;
+  border-radius: 5px;
+  width: 50%;
+  margin-top: -10px;
+  padding-left: 10px;
+}
+.input2 {
+  height: 50px;
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 70%;
+  margin-top: -10px;
+  padding-left: 10px;
+}
+.button {
+  height: 54px;
+  line-height: 50px;
+  width: 20%;
+  background-color: lightgray;
+  color: white;
+  font-weight: 600;
+  font-size: medium;
+  border-radius: 5px;
+  border: none;
+  margin-left: 10px;
+  margin-top: -10px;
+}
+.startBtn {
+  height: 54px;
+  width: 40%;
+  border-radius: 5px;
+  border: none;
+  background-color: lightgray;
+  color: white;
+  font-size: large;
+  font-weight: 600;
+  margin-left: 130px;
+  margin-top: 30px;
+}
