@@ -1,87 +1,127 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import styles from '../style/SignUp.module.css';
 import sample from '../img/sample.png';
 
-function SignUp() {
+const SignUp = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [checkNum, setCheckNum] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const navigate = useNavigate();
+
+  const handleSendEmail = () => {
+    axios.post('/api/signup/email', { email }) // 가상 api 주소
+      .then((response) => {
+        console.log('이메일 보내기 성공', response.data);
+      })
+      .catch((error) => {
+        console.error('이메일 보내기 실패', error);
+      });
+  };
+
+  const validatePw = () => {
+    const pwRegExp = /^(?=.*?[a-zA-Z])(?=.*?[#?!@$ %^&*-]).{8,40}$/;
+    if (!password) {
+      alert('비밀번호를 입력하세요');
+      return false;
+    }
+    if (!pwRegExp.test(password)) {
+      alert('비밀번호가 형식에 맞지 않습니다.');
+      return false;
+    }
+    if (!confirmPassword) {
+      alert('비밀번호 확인을 입력하세요');
+      return false;
+    }
+    if (password !== confirmPassword) {
+      alert('비밀번호와 비밀번호 확인이 같지 않습니다.');
+      return false;
+    }
+
+    return true;
+  };
+
+  const handleSignUp = () => {
+    if (!name) {
+      alert('닉네임을 입력하세요');
+      return false;
+    }
+    if (!email) {
+      alert('이메일을 입력하세요');
+      return false;
+    }
+    if (!checkNum) {
+      alert('인증번호를 확인하세요');
+      return false;
+    }
+    if (!validatePw()) {
+      return false;
+    }
+
+    alert('가입이 완료되었습니다.');
+    navigate('/api/login');
+    return true;
+  };
+
+  const handleCheckNum = () => {
+    axios.post('/api/signup/checkNum', { checkNum }) // 가상 api 주소
+      .then((response) => {
+        if (response.data === true) {
+          alert('인증번호가 일치합니다.');
+        } else {
+          alert('인증번호가 일치하지 않습니다.');
+        }
+      })
+      .catch((error) => {
+        console.error('인증번호 보내기 실패', error);
+      });
+  };
+
   return (
     <div className={styles.viewport}>
       <div className={styles.box}>
         <img src={sample} alt="" />
         <div className={styles.contents}>
           <div className={styles.wrap}>
-            <p>Email</p>
+            <p>닉네임</p>
+            <input type="text" className={styles.input2} onChange={(e) => setName(e.target.value)} value={name} />
+          </div>
+          <div className={styles.wrap}>
+            <p>이메일</p>
             <div>
-              <input type="email" className={styles.input} />
-              <button type="button" className={styles.button}>
-                Send Email
+              <input type="email" className={styles.input} onChange={(e) => setEmail(e.target.value)} value={email} />
+              <button type="button" onClick={handleSendEmail}>
+                보내기
               </button>
             </div>
           </div>
           <div className={styles.wrap}>
-            <p>Certification Number</p>
+            <p>인증번호 확인</p>
             <div>
-              <input type="number" className={styles.input} />
-              <button type="button" className={styles.button}>
-                Confirm
+              <input type="text" className={styles.input} onChange={(e) => setCheckNum(e.target.value)} value={checkNum} />
+              <button type="button" onClick={handleCheckNum}>
+                확인
               </button>
             </div>
           </div>
           <div className={styles.wrap}>
-            <p>Password</p>
-            <input type="password" className={styles.input2} />
+            <p>비밀번호</p>
+            <input type="text" className={styles.input2} onChange={(e) => setPassword(e.target.value)} value={password} />
           </div>
           <div className={styles.wrap}>
-            <p>Nickname</p>
-            <input type="text" className={styles.input2} />
+            <p>비밀번호 확인</p>
+            <input type="text" className={styles.input2} onChange={(e) => setConfirmPassword(e.target.value)} value={confirmPassword} />
           </div>
-
-          <button type="button" className={styles.startBtn}>
+          <button type="button" onClick={handleSignUp}>
             Get Started!
           </button>
         </div>
       </div>
     </div>
-    /* <div className="h-[832px] w-[1280px] overflow-hidden bg-white text-left text-xs text-white">
-      <div className="rounded-8xs bg-darkgray absolute left-[calc(50%_-_420px)]
-      top-[calc(50%_-_271px)] h-[576px] w-[886px] [filter:blur(50px)]" />
-      <div className="rounded-mini bg-whitesmoke-200 absolute left-[calc(50%_-_420px)]
-      top-[calc(50%_-_271px)] h-[542px] w-[840px]" />
-      <div className="text-3xs text-tomato absolute left-[900px] top-[269px] leading-[24px]">
-        3분 55초
-      </div>
-      <img src={sample} alt="" />
-
-      <div className="rounded-8xs bg-gainsboro absolute left-[762px]
-      top-[553px] h-[51px] w-[187px]" />
-      <b className="absolute left-[793px] top-[567px] text-xl">Get Started!</b>
-      <div className="rounded-8xs bg-gainsboro absolute left-[949px]
-      top-[209px] h-[49px] w-[74px]" />
-      <b className="absolute left-[968px] top-[218px] text-center">
-        <p className="m-0">Send</p>
-        <p className="m-0">Email</p>
-      </b>
-      <div className="rounded-8xs bg-gainsboro absolute left-[949px]
-      top-[293px] h-[49px] w-[74px]" />
-      <b className="absolute left-[961px] top-[310px] text-center">Confirm</b>
-      <div className="absolute left-[694px] top-[362px] text-black">
-        Password
-      </div>
-      <div className="rounded-8xs absolute left-[694px] top-[209px]
-      box-border h-[49px] w-[244px] border-[1px] border-solid border-black" />
-      <div className="rounded-8xs absolute left-[694px] top-[384px]
-       box-border h-[49px] w-[312px] border-[1px] border-solid border-black" />
-      <div className="absolute left-[694px] top-[453px] text-black">
-        Nickname
-      </div>
-      <div className="rounded-8xs absolute left-[694px] top-[475px]
-      box-border h-[49px] w-[312px] border-[1px] border-solid border-black" />
-      <div className="rounded-8xs absolute left-[694px] top-[293px]
-      box-border h-[49px] w-[244px] border-[1px] border-solid border-black" />
-      <div className="absolute left-[694px] top-[188px] text-black">Email</div>
-      <div className="absolute left-[694px] top-[273px] text-black">
-        Certification Number
-      </div>
-    </div> */
   );
-}
+};
+
 export default SignUp;
