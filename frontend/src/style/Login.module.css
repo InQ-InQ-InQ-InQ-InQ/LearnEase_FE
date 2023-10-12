@@ -1,0 +1,84 @@
+.viewport {
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.box {
+  width: 60%;
+  height: 542px;
+  border: 1px solid black;
+  margin-top: 80px;
+  border-radius: 15px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+.contents {
+  width: 50%;
+  height: 100%;
+  border: 1px solid red;
+  position: absolute;
+  right: 0;
+}
+.header {
+  width: 100%;
+  height: 10%;
+  margin-top: 30px;
+  position: relative;
+}
+.headerwrap {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  margin-right: 20px;
+}
+.signUpBtn {
+  width: 100%;
+  height: 35px;
+  background-color: lightgray;
+  color: white;
+  font-weight: 600;
+  border-radius: 5px;
+  margin-left: 15px;
+  font-size: large;
+  margin-top: 10px;
+}
+.main {
+  margin-top: 60px;
+  width: 100%;
+  height: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.input {
+  height: 50px;
+  width: 70%;
+  margin-top: 20px;
+  padding-left: 10px;
+  border-radius: 5px;
+}
+.footer {
+  width: 100%;
+  height: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.signInBtn {
+  background-color: lightgrey;
+  color: white;
+  font-weight: 600;
+  font-size: large;
+  width: 40%;
+  height: 51px;
+  border-radius: 5px;
+}
