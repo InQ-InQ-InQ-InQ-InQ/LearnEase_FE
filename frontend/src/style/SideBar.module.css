@@ -1,0 +1,26 @@
+.sidebar{
+    width: 20%;
+    height: 900px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid lightgray;
+
+}
+.head{
+    margin-left: 20px;
+}
+.text{
+    font-size: larger;
+    font-weight: 600;
+}
+.navigation{
+    margin-left: 30px;
+    height: 300px;
+}
+.text1{
+    color: gray;
+    font-size: large;
+    font-weight: 600;
+    text-decoration: none;
+}
