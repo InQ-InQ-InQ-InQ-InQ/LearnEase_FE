@@ -9,9 +9,13 @@
 
 .box {
   width: 60%;
+<<<<<<< HEAD
   height: 500px;
+=======
+  height: 600px;
+>>>>>>> cc3b3bcadbf978737828ceca56d08abf589f6481
   border: 1px solid black;
-  margin-top: 80px;
+  margin-top: 150px;
   border-radius: 15px;
   position: relative;
   display: flex;
@@ -31,7 +35,7 @@
 .wrap {
   justify-content: center;
   align-items: center;
-  height: 15%;
+  height: 13%;
   width: 90%;
   margin-left: 70px;
 }
@@ -54,7 +58,11 @@
 }
 
 .emailbutton {
+<<<<<<< HEAD
   height: 44px;
+=======
+  height: 54px;
+>>>>>>> cc3b3bcadbf978737828ceca56d08abf589f6481
   width: 20%;
   background-color: lightgray;
   color: white;
@@ -67,7 +75,11 @@
 }
 
 .button {
+<<<<<<< HEAD
   height: 44px;
+=======
+  height: 50px;
+>>>>>>> cc3b3bcadbf978737828ceca56d08abf589f6481
   line-height: 50px;
   width: 20%;
   background-color: lightgray;
