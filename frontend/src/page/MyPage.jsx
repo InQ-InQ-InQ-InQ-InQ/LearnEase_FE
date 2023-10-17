@@ -8,18 +8,20 @@ function MyPage(){
         <SideBar/>
         <div className={styles.mainprofile}>
             <div className={styles.miniinfo}>
+                <div className={styles.headwrap}>
                 <p className={styles.nickname}>닉네임</p>
-                <p>Logout</p>
+                <p className={styles.logout}>Logout</p>
+                </div>
             </div>
         <div className={styles.headprofile}>
             <div className={styles.userinfo}>
-                <p className={styles.nickname}>닉네임</p>
+                <p className={styles.text}>닉네임</p>
                 <p className={styles.mail}>메일</p>
             </div>
             <button className={styles.profileeditbtn}>Edit Account</button>
         </div>
         <div className={styles.bodyprofile}>
-            <p className={styles.text}>닉네임님의 목표</p> <br/>
+            <p className={styles.text1}>닉네임님의 목표</p> <br/>
             <div className={styles.goalwrap}>
                 <div className={styles.goalbox}>
                     <p>정보처리기사실기</p>

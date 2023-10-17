@@ -4,41 +4,45 @@ function SideBar(){
     return(
         <>
         <div className={styles.sidebar}>
+            <div className={styles.wrap}>
             <div className={styles.head}>
                 <p className={styles.text}>LearEase</p>
                 <i></i>
             </div>
             <nav className={styles.navigation}>
-                <a href='/today'>
+                <a href='/today' className={styles.menu}>
                     <i></i>
-                    <p className={styles.text1}>Today</p>
+                    <p>Today</p>
                 </a>
-                <a href='/weekly'>
+                <a href='/weekly' className={styles.menu}>
                     <i></i>
-                    <p className={styles.text1}>Weekly</p>
+                    <p>Weekly</p>
                 </a>
-                <a href='/plan'>
+                <a href='/plan' className={styles.menu}>
                     <i></i>
-                    <p className={styles.text1}>Make Plan</p>
+                    <p>Make Plan</p>
                 </a>    
-                <a href='/community'>
-                    <div className={styles.menu}>
+                <a href='/community' className={styles.menu}>
+    
                     <i></i>
-                    <p className={styles.text1}>Community</p>
-                    </div>
+                    <p>Community</p>
+                    
                 </a>
             </nav>
+            </div>
             <hr></hr>
+            <div className={styles.wrap}>
             <nav className={styles.navigation}>
-                <a href='/setting'>
+                <a href='/setting' className={styles.menu}>
                     <i></i>
-                    <p className={styles.text1}>Setting</p>
+                    <p>Setting</p>
                 </a>
-                <a href='/profile'>
+                <a href='/profile' className={styles.menu}>
                     <i></i>
-                    <p className={styles.text1}>My Page</p>
+                    <p>My Page</p>
                 </a>
             </nav>
+            </div>
         </div>
         </>
     );
