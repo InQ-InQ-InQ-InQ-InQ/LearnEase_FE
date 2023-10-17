@@ -12,6 +12,12 @@
 }
 .head{
     margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+}
+.arrowicon{
+    margin-left: 100px;
+    margin-top: 30px;
 }
 .text{
     font-size: x-large;
