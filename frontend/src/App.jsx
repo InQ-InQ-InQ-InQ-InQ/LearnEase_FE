@@ -14,20 +14,9 @@ function App() {
   return (
     <Router>
       <Routes>
-<<<<<<< HEAD
         <Route path="/" element={<Navigate to="/api/login" />} />
         <Route exact path="/api/login" element={<Login />} />
         <Route exact path="/api/signup" element={<SignUp />} />
-=======
-<<<<<<< HEAD
-        <Route exact path="/" element={<Login />} />
-        <Route exact path="/signup" element={<SignUp />} />
-=======
-        <Route path="/" element={<Navigate to="/api/signup" />} />
-        <Route exact path="/api/login" element={<Login />} />
-        <Route exact path="/api/signup" element={<SignUp />} />
->>>>>>> 5487262f75ceddcea2f65b25e405da8432a8b105
->>>>>>> cc3b3bcadbf978737828ceca56d08abf589f6481
       </Routes>
     </Router>
   );
