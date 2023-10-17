@@ -6,9 +6,10 @@
   flex-direction: column;
   overflow: hidden;
 }
+
 .box {
   width: 60%;
-  height: 542px;
+  height: 500px;
   border: 1px solid black;
   margin-top: 80px;
   border-radius: 15px;
@@ -16,16 +17,17 @@
   display: flex;
   flex-direction: row;
 }
+
 .contents {
   width: 50%;
   height: 100%;
-  border: 1px solid red;
   position: relative;
   right: 0;
   padding-top: 20px;
   justify-content: center;
   align-items: center;
 }
+
 .wrap {
   justify-content: center;
   align-items: center;
@@ -33,23 +35,39 @@
   width: 90%;
   margin-left: 70px;
 }
+
 .input {
-  height: 50px;
+  height: 40px;
   border-radius: 5px;
   width: 50%;
   margin-top: -10px;
   padding-left: 10px;
 }
+
 .input2 {
-  height: 50px;
+  height: 40px;
   border: 2px solid black;
   border-radius: 5px;
   width: 70%;
   margin-top: -10px;
   padding-left: 10px;
 }
+
+.emailbutton {
+  height: 44px;
+  width: 20%;
+  background-color: lightgray;
+  color: white;
+  font-weight: 600;
+  font-size: large;
+  border-radius: 5px;
+  border: none;
+  margin-left: 10px;
+  margin-top: -10px;
+}
+
 .button {
-  height: 54px;
+  height: 44px;
   line-height: 50px;
   width: 20%;
   background-color: lightgray;
@@ -61,6 +79,7 @@
   margin-left: 10px;
   margin-top: -10px;
 }
+
 .startBtn {
   height: 54px;
   width: 40%;
@@ -71,5 +90,29 @@
   font-size: large;
   font-weight: 600;
   margin-left: 130px;
-  margin-top: 30px;
+  margin-top: 28px;
+}
+
+.certification {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.timer {
+  font-size: 14px;
+  text-align: right;
+  margin-left: 40px;
+  position: relative;
+  color: red;
+}
+
+.invalid {
+  border: 2px solid red;
+}
+
+.invalidMessage {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
 }
