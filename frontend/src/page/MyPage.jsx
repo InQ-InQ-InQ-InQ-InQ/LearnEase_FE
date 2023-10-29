@@ -4,9 +4,8 @@ import styles from '../style/MyPage.module.css';
 
 function MyPage() {
     return (
-
       <div className={styles.viewport}>
-        <SideBar />
+        <SideBar currentPage={6} />
         <div className={styles.mainprofile}>
           <div className={styles.miniinfo}>
             <div className={styles.headwrap}>
@@ -19,7 +18,7 @@ function MyPage() {
               <p className={styles.text}>닉네임</p>
               <p className={styles.mail}>메일</p>
             </div>
-            <input type="button" value="Edit Account" className={styles.profileeditbtn} />
+            <button type="button" className={styles.profileeditbtn}>Edit Account</button>
           </div>
           <div className={styles.bodyprofile}>
             <p className={styles.text1}>닉네임님의 목표</p>
@@ -30,16 +29,16 @@ function MyPage() {
                 <p>정보처리기사실기</p>
                 <p>23/10/15~23/12/15</p>
                 <div className={styles.btnwrap}>
-                  <input type="button" className={styles.deletebtn} value="Delete" />
-                  <input type="button" className={styles.goaleditbtn} value="Edit" />
+                  <button type="button" className={styles.deletebtn}>Delete</button>
+                  <button type="button" className={styles.goaleditbtn}>Edit</button>
                 </div>
               </div>
               <div className={styles.goalbox}>
                 <p>정보처리기사실기</p>
                 <p>23/10/15~23/12/15</p>
                 <div className={styles.btnwrap}>
-                  <input type="button" className={styles.deletebtn} value="Delete" />
-                  <input type="button" className={styles.goaleditbtn} value="Edit" />
+                  <button type="button" className={styles.deletebtn}>Delete</button>
+                  <button type="button" className={styles.goaleditbtn}>Edit</button>
                 </div>
               </div>
             </div>

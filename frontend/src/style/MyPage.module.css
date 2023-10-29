@@ -59,6 +59,7 @@
     width: 15%;
     border-radius: 5px;
     font-size: medium;
+    border: none;
 }
 .bodyprofile{
     border: 1px solid lightgray;
