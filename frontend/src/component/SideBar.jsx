@@ -16,7 +16,7 @@ function SideBar({ currentPage }) {
 
     return (
       <div className={styles.frame}>
-        <nav className={`${styles.sidebar}${sideOpen ? 'active' : ''}`}>
+        <nav className={`${styles.sidebar}${sideOpen ? '' : 'active'}`}>
           <div className={styles.wrap}>
             <div className={styles.head}>
               <p className={styles.text}>LearEase</p>

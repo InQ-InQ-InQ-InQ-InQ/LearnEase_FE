@@ -11,10 +11,10 @@
 }
 .editscreen{
     width: 40%;
-    height: 50%;
+    height: 75%;
     background-color: white;
     position: fixed;
-    top: 20%;
+    top: 10%;
     border-radius: 10px;
     border: 1px solid black;
     justify-content: center;
@@ -26,18 +26,19 @@
     margin-top: 70px;
     height: 70%;
 }
-.nicknamebox,.mailbox,.passwordbox{
+.box{
     display: flex;
     flex-direction: row;
     width: 100%;
     align-items: center;
     margin-bottom: 20px;
+    justify-content: space-between;
 }
 
 .text{
     font-size: large;
     font-weight: bolder;
-    margin-left: 100px;
+    padding-left: 70px;
 }
 .mailwrap, .nicknamewrap{
     font-size: large;
@@ -45,21 +46,28 @@
     border-bottom: 1px solid black;
     width: 50%;
     height: 30px;
+    margin-right: 50px;
 }
-.mailwrap{
-    margin-left: 100px;
-}
-.nicknamewrap{
-    margin-left: 40px;
-}
+
 .passwordbtn{
-    margin-left: 100px;
-    width: 200px;
+    width: 50%;
     height: 50px;
     font-size: medium;
+    margin-right: 50px;
+}
+.passwordbtn1{
+    height: 50px;
+    font-size: medium;
+    width: 50%;
 }
 .out{
     position: absolute;
     right: 0;
     margin: 10px;
+}
+.inputpw{
+    outline: none;
+    border: none;
+    font-size: large;
+    width: 60%;
 }
