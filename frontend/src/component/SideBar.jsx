@@ -20,25 +20,25 @@ function SideBar({ currentPage }) {
           <div className={styles.wrap}>
             <div className={styles.head}>
               <p className={styles.text}>LearEase</p>
-              <button type="button" className={styles.arrowicon} onClick={sideHandler}>{sideOpen ? '>>' : '<<'}</button>
+              <button type="button" className={styles.arrowicon} onClick={sideHandler}>{sideOpen ? '<<' : '>>'}</button>
             </div>
             <nav className={styles.navigation}>
-              <a href="/today" className={`${styles.menu} ${currentPage === 1 ? styles['font-semibold'] : ''}`}>
+              <a href="/today" className={styles.menu}>
                 <BsSun />
-                <div className={styles.mtext}>Today</div>
+                <div className={`${styles.mtext}${currentPage === 1 ? styles['font-black'] : ''}`}>Today</div>
               </a>
-              <a href="/weekly" className={`${styles.menu} ${currentPage === 2 ? styles['font-semibold'] : ''}`}>
+              <a href="/weekly" className={styles.menu}>
                 <AiOutlineCalendar />
-                <div className={styles.mtext}>Weekly</div>
+                <div className={`${styles.mtext}${currentPage === 2 ? styles['font-black'] : ''}`}>Weekly</div>
               </a>
-              <a href="/plan" className={`${styles.menu} ${currentPage === 3 ? styles['font-semibold'] : ''}`}>
+              <a href="/plan" className={styles.menu}>
                 <AiOutlineThunderbolt />
-                <div className={styles.mtext}>Make Plan</div>
+                <div className={`${styles.mtext}${currentPage === 3 ? styles['font-black'] : ''}`}>Make Plan</div>
               </a>
-              <a href="/community" className={`${styles.menu} ${currentPage === 4 ? styles['font-semibold'] : ''}`}>
+              <a href="/community" className={styles.menu}>
 
                 <TfiWorld />
-                <div className={styles.mtext}>Community</div>
+                <div className={`${styles.mtext}${currentPage === 4 ? styles['font-black'] : ''}`}>Community</div>
 
               </a>
             </nav>
@@ -46,13 +46,13 @@ function SideBar({ currentPage }) {
           <hr />
           <div className={styles.wrap}>
             <nav className={styles.navigation}>
-              <a href="/setting" className={`${styles.menu} ${currentPage === 5 ? styles['font-semibold'] : ''}`}>
+              <a href="/setting" className={styles.menu}>
                 <FiSettings />
-                <div className={styles.mtext}>Setting</div>
+                <div className={`${styles.mtext}${currentPage === 5 ? styles['font-black'] : ''}`}>Setting</div>
               </a>
-              <a href="/profile" className={`${styles.menu} ${currentPage === 6 ? styles['font-semibold'] : ''}`}>
+              <a href="/profile" className={styles.menu}>
                 <FaRegUser />
-                <div className={styles.mtext}>My Page</div>
+                <div className={`${styles.mtext}${currentPage === 6 ? '' : 'active'}`}>My Page</div>
               </a>
             </nav>
           </div>

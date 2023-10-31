@@ -91,6 +91,7 @@
     padding: 20px;
     border-radius: 5px;
     font-size: large;
+    font-weight:600;
 }
 .btnwrap{
     position: relative;

@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SideBar from '../component/SideBar';
 import styles from '../style/MyPage.module.css';
+import EditAccount from './EditAccount';
 
 function MyPage() {
+  const [editAccount, setEditAccount] = useState(false);
+
+  const editHandler = () => {
+    setEditAccount(true);
+  };
     return (
       <div className={styles.viewport}>
         <SideBar currentPage={6} />
@@ -18,7 +24,7 @@ function MyPage() {
               <p className={styles.text}>닉네임</p>
               <p className={styles.mail}>메일</p>
             </div>
-            <button type="button" className={styles.profileeditbtn}>Edit Account</button>
+            <button type="button" className={styles.profileeditbtn} onClick={editHandler}>Edit Account</button>
           </div>
           <div className={styles.bodyprofile}>
             <p className={styles.text1}>닉네임님의 목표</p>
@@ -44,6 +50,7 @@ function MyPage() {
             </div>
           </div>
         </div>
+        {editAccount && <EditAccount />}
       </div>
     );
 }
