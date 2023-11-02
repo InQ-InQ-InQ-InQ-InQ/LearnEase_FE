@@ -1,0 +1,82 @@
+.viewport{
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    background-color: #e9e9e9;
+}
+.container{
+    width: 85%;
+    height: 900px;
+   margin-left: 400px;
+}
+.headwrap{
+    width: 80%;
+    height: 150px;
+}
+.date{
+    font-size:xx-large;
+    font-weight: 600;
+    margin-right: 30px;
+}
+.info{
+    display: flex;
+    flex-direction: row;
+}
+.title{
+    font-size: x-large;
+    font-weight: bold;
+}
+.midwrap{
+    position: relative;
+    width: 80%;
+    margin-bottom: 20px;
+    height: 50px;
+}
+.addbtn{
+    position: absolute;
+    right: 0;
+    height: 50px;
+    width: 20%;
+    color: white;
+    background-color: lightgray;
+    border: none;
+}
+.mainwrap{
+    width: 80%;
+    height: 500px;
+    background-color: white;
+    border: 1px solid #e9e9e9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.top{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 40px;
+    border: 1px solid rebeccapurple;
+    font-size: medium;
+    font-weight: 600;
+    color: gray;
+}
+.taskwrap{
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    height: 40px;
+    border-bottom: 1px solid #e9e9e9;
+}
+.check{
+    margin-right: 80px;
+    margin-left: 50px;
+}
+.value{
+    margin-right: 80px;
+    font-size: medium;
+    font-weight: 600;
+    color: gray;
+    margin-top: 8px;
+    margin-left: 50px;
+}

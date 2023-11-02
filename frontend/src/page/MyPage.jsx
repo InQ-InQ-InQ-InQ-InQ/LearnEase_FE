@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import SideBar from '../component/SideBar';
 import styles from '../style/MyPage.module.css';
 import EditAccount from './EditAccount';
+import Header from '../component/Header';
 
 function MyPage() {
   const [editAccount, setEditAccount] = useState(false);
@@ -13,12 +14,7 @@ function MyPage() {
       <div className={styles.viewport}>
         <SideBar currentPage={6} />
         <div className={styles.mainprofile}>
-          <div className={styles.miniinfo}>
-            <div className={styles.headwrap}>
-              <p className={styles.nickname}>닉네임</p>
-              <p className={styles.logout}>Logout</p>
-            </div>
-          </div>
+          <Header />
           <div className={styles.headprofile}>
             <div className={styles.userinfo}>
               <p className={styles.text}>닉네임</p>

@@ -10,21 +10,6 @@
     height: 900px;
    margin-left: 400px;
 }
-.miniinfo{
-    width: 90% ;
-    height: 80px;
-    position: relative;
-}
-.headwrap{
-    position: absolute;
-    right: 0;
-    display: flex;
-    flex-direction: row;
-    margin-top: 20px;
-}
-.logout{
-    margin-left: 20px;
-}
 .headprofile{
     width: 90%;
     height: 130px;
