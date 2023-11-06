@@ -23,5 +23,6 @@ module.exports = {
     'linebreak-style': 0,
     'react/jsx-filename-extension': [1, { extensions: ['.jsx', '.js'] }],
     'react/function-component-definition': 'off',
+    indent: 'off',
   },
 };
