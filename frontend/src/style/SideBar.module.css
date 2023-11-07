@@ -1,0 +1,42 @@
+.frame{
+    width: 20%;
+    height: 1000px;
+    position:  fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    
+}
+.wrap{
+    margin: 20px;
+}
+.head{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+}
+.arrowicon{
+    margin-left: 100px;
+    margin-top: 30px;
+    height: 20px;
+    border: none;
+}
+.text{
+    font-size: x-large;
+    font-weight: 700;
+}
+.navigation{
+    margin-left: 30px;
+    height: 300px;
+    margin-top: 30px;
+}
+.menu{
+    color: gray;
+    font-size: large;
+    font-weight: 600;
+    text-decoration-line: none;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+}
+
