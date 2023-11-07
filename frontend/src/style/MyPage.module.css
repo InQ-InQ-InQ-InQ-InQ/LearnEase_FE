@@ -49,6 +49,7 @@
     border-radius: 5px;
     font-size: medium;
     border: none;
+    cursor: pointer;
 }
 .bodyprofile{
     border: 1px solid lightgray;
@@ -91,6 +92,7 @@
     width: 45%;
     border-radius: 5px;
     font-size: medium;
+    cursor: pointer;
 }
 .goaleditbtn{
     position: absolute;
