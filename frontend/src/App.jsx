@@ -1,5 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+ BrowserRouter as Router, Routes, Route, Navigate,
+} from 'react-router-dom';
 import './App.css';
 import './index.css';
 import Login from './page/Login';
@@ -11,8 +13,9 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/login" element={<Login />} />
-        <Route exact path="/" element={<SignUp />} />
+        <Route path="/" element={<Navigate to="/api/login" />} />
+        <Route exact path="/api/login" element={<Login />} />
+        <Route exact path="/api/signup" element={<SignUp />} />
         <Route exact path="/profile" element={<MyPage />} />
         <Route exact path="/today" element={<Today />} />
       </Routes>
