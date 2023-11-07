@@ -11,16 +11,18 @@
    margin-left: 400px;
 }
 .headprofile{
-    width: 90%;
+    width: 85%;
     height: 130px;
     display: flex;
     flex-direction: row;
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     background-color: white;
     border: 1px solid lightgray;
     border-radius: 5px;
     align-items: center;
+    margin-top: 30px;
+    box-shadow: 0 0 10px -7px;
 }
 .userinfo{
     margin-left: 30px;
@@ -33,6 +35,8 @@
     font-weight: 600;
     font-size: large;
     color: gray;
+    margin-left: 10px;
+    margin-top: -10px;
 }
 .profileeditbtn{
     background-color: lightgray;
@@ -48,15 +52,16 @@
 }
 .bodyprofile{
     border: 1px solid lightgray;
-    width: 90%;
+    width: 85%;
     height: 500px;
     background-color: white;
     border-radius: 5px;
+    box-shadow: 0 0 10px -7px;
 }
 .text,.text1{
     font-size:x-large ;
     font-weight: 600;
- 
+    margin-left: 10px;
 }
 .text1{
     margin: 30px;

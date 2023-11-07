@@ -7,13 +7,12 @@ function EditAccount() {
   const passwordHandler = () => {
     setNewPassword(true);
   };
- /* const [outPage, setOutPage] = useState(true);
+  /* const [outPage, setOutPage] = useState(true);
 
   const outHandler = () => {
     setOutPage(true);
   };
-  */
-
+*/
     return (
       <div className={styles.screen}>
         <div className={styles.editscreen}>

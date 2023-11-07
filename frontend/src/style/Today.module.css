@@ -13,6 +13,7 @@
 .headwrap{
     width: 85%;
     height: 150px;
+    margin-top: -10px;
 }
 .date{
     font-size:xx-large;
@@ -22,6 +23,7 @@
 .info{
     display: flex;
     flex-direction: row;
+    margin-top: -10px;
 }
 .title{
     font-size: x-large;
@@ -31,7 +33,7 @@
 .midwrap{
     position: relative;
     width: 85%;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     height: 50px;
     margin-top: -30px;
 }
@@ -43,6 +45,7 @@
     color: white;
     background-color: lightgray;
     border: none;
+    
 }
 .mainwrap{
     width: 85%;
@@ -52,6 +55,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 0 0 10px -7px;
 }
 .top{
     display: flex;

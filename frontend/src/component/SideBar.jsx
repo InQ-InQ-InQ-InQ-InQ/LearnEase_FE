@@ -14,49 +14,53 @@ function SideBar({ currentPage }) {
     setSideOpen(!sideOpen);
   };
 
+  const sidebar = `absolute top-0 border-1 border-lightgray shadow-xl bg-white w-300 transition-transform duration-500 transform ${sideOpen ? '-translate-x-300' : ''}`;
+
     return (
       <div className={styles.frame}>
-        <nav className={`${styles.sidebar}${sideOpen ? '' : 'active'}`}>
-          <div className={styles.wrap}>
-            <div className={styles.head}>
-              <p className={styles.text}>LearEase</p>
-              <button type="button" className={styles.arrowicon} onClick={sideHandler}>{sideOpen ? '<<' : '>>'}</button>
+        <div className={styles.wrapping}>
+          <nav className={sidebar}>
+            <div className={styles.wrap}>
+              <div className={styles.head}>
+                <p className={styles.text}>LearEase</p>
+                <button type="button" className={styles.arrowicon} onClick={sideHandler}>{sideOpen ? '<<' : '>>'}</button>
+              </div>
+              <nav className={styles.navigation}>
+                <a href="/today" className={styles.menu}>
+                  <BsSun />
+                  <div className={`ml-5 -mt-1 ${currentPage === 1 ? 'text-red' : ''}`}>Today</div>
+                </a>
+                <a href="/weekly" className={styles.menu}>
+                  <AiOutlineCalendar />
+                  <div className={`ml-5 -mt-1 ${currentPage === 2 ? 'text-red' : ''}`}>Weekly</div>
+                </a>
+                <a href="/plan" className={styles.menu}>
+                  <AiOutlineThunderbolt />
+                  <div className={`ml-5 -mt-1 ${currentPage === 3 ? 'text-red' : ''}`}>Make Plan</div>
+                </a>
+                <a href="/community" className={styles.menu}>
+
+                  <TfiWorld />
+                  <div className={`ml-5 -mt-1 ${currentPage === 4 ? 'text-red' : ''}`}>Community</div>
+
+                </a>
+              </nav>
             </div>
-            <nav className={styles.navigation}>
-              <a href="/today" className={styles.menu}>
-                <BsSun />
-                <div className={`${styles.mtext}${currentPage === 1 ? styles['font-black'] : ''}`}>Today</div>
-              </a>
-              <a href="/weekly" className={styles.menu}>
-                <AiOutlineCalendar />
-                <div className={`${styles.mtext}${currentPage === 2 ? styles['font-black'] : ''}`}>Weekly</div>
-              </a>
-              <a href="/plan" className={styles.menu}>
-                <AiOutlineThunderbolt />
-                <div className={`${styles.mtext}${currentPage === 3 ? styles['font-black'] : ''}`}>Make Plan</div>
-              </a>
-              <a href="/community" className={styles.menu}>
-
-                <TfiWorld />
-                <div className={`${styles.mtext}${currentPage === 4 ? styles['font-black'] : ''}`}>Community</div>
-
-              </a>
-            </nav>
-          </div>
-          <hr />
-          <div className={styles.wrap}>
-            <nav className={styles.navigation}>
-              <a href="/setting" className={styles.menu}>
-                <FiSettings />
-                <div className={`${styles.mtext}${currentPage === 5 ? styles['font-black'] : ''}`}>Setting</div>
-              </a>
-              <a href="/profile" className={styles.menu}>
-                <FaRegUser />
-                <div className={`${styles.mtext}${currentPage === 6 ? '' : 'active'}`}>My Page</div>
-              </a>
-            </nav>
-          </div>
-        </nav>
+            <hr />
+            <div className={styles.wrap}>
+              <nav className={styles.navigation}>
+                <a href="/setting" className={styles.menu}>
+                  <FiSettings />
+                  <div className={`ml-5 -mt-1 ${currentPage === 5 ? 'text-red' : ''}`}>Setting</div>
+                </a>
+                <a href="/profile" className={styles.menu}>
+                  <FaRegUser />
+                  <div className={`ml-5 -mt-1 ${currentPage === 6 ? 'text-red' : ''}`}>My Page</div>
+                </a>
+              </nav>
+            </div>
+          </nav>
+        </div>
       </div>
     );
 }

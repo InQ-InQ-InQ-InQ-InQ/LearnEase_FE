@@ -16,17 +16,19 @@ function MyPage() {
         <div className={styles.mainprofile}>
           <Header />
           <div className={styles.headprofile}>
+            {/* 정보 가져오기 */}
             <div className={styles.userinfo}>
-              <p className={styles.text}>닉네임</p>
-              <p className={styles.mail}>메일</p>
+              <p className={styles.text}>홍길동</p>
+              <p className={styles.mail}>gdflflk@gmail.com</p>
             </div>
             <button type="button" className={styles.profileeditbtn} onClick={editHandler}>Edit Account</button>
           </div>
           <div className={styles.bodyprofile}>
-            <p className={styles.text1}>닉네임님의 목표</p>
+            <p className={styles.text1}>홍길동님의 목표</p>
             {' '}
             <br />
             <div className={styles.goalwrap}>
+              {/* 정보 가져오기 */}
               <div className={styles.goalbox}>
                 <p>정보처리기사실기</p>
                 <p>23/10/15~23/12/15</p>

@@ -4,21 +4,8 @@
     position:  fixed;
     top: 0;
     left: 0;
-}
-.sidebar{
-    border: 1px solid lightgray;
-    background-color: white;
-    position: absolute;
-    transition: 0.5s;
-    margin-left: -200px;
-    width: 200px;
     display: flex;
-    height: 1000px;
-    flex-direction: column;
-}
-
-.sidebar.active{
-    margin-left: 0;
+    
 }
 .wrap{
     margin: 20px;
@@ -52,16 +39,4 @@
     flex-direction: row;
     margin-bottom: 30px;
 }
-.mtext{
-    margin-left: 20px;
-    margin-top: -5px;
-}
-.mtext.active{
-    color: black;
-    font-size: large;
-    font-weight: 600;
-    text-decoration-line: none;
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 30px;
-}
+
