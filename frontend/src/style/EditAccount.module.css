@@ -1,0 +1,74 @@
+.screen{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(17, 17, 17, 0.4);
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+}
+
+.editscreen{
+    width: 40%;
+    height: 75%;
+    background-color: white;
+    position: fixed;
+    top: 10%;
+    border-radius: 10px;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+.wrap{
+    margin-top: 70px;
+    height: 70%;
+}
+.box{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+.text{
+    font-size: large;
+    font-weight: bolder;
+    padding-left: 70px;
+}
+.mailwrap, .nicknamewrap{
+    font-size: large;
+    font-weight: 600;
+    border-bottom: 1px solid black;
+    width: 50%;
+    height: 30px;
+    margin-right: 50px;
+}
+
+.passwordbtn{
+    width: 50%;
+    height: 50px;
+    font-size: medium;
+    margin-right: 50px;
+}
+.passwordbtn1{
+    height: 50px;
+    font-size: medium;
+    width: 50%;
+}
+.out{
+    position: absolute;
+    right: 0;
+    margin: 10px;
+}
+.inputpw{
+    outline: none;
+    border: none;
+    font-size: large;
+    width: 60%;
+}

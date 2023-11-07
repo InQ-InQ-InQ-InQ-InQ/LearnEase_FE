@@ -9,6 +9,8 @@ import './App.css';
 import './index.css';
 import Login from './page/Login';
 import SignUp from './page/SignUp';
+import MyPage from './page/MyPage';
+import Today from './page/Today';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route path="/" element={<Navigate to="/api/login" />} />
         <Route exact path="/api/login" element={<Login />} />
         <Route exact path="/api/signup" element={<SignUp />} />
+        <Route exact path="/profile" element={<MyPage />} />
+        <Route exact path="/today" element={<Today />} />
       </Routes>
     </Router>
   );
