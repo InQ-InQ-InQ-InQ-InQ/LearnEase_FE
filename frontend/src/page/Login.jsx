@@ -11,7 +11,7 @@ function Login() {
           <div className={styles.header}>
             <div className={styles.headerwrap}>
               <p>Don&apost have an account?</p>
-              <a href="/signup">
+              <a href="/api/signup">
                 <button type="button" className={styles.signUpBtn}>
                   Sign Up
                 </button>
