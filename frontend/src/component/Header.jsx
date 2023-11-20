@@ -5,19 +5,24 @@ import styles from '../style/Header.module.css';
 
 function Header() {
   const accessToken = sessionStorage.getItem('accessToken');
-  const [userInfo, setUserInfo] = useState('');
+  const [userInfo, setUserInfo] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {
-    const user = async () => {
+    const getUserInfo = async () => {
       try {
-        const response = await axios.get('/api/me');
+        const response = await axios.get('/api/me', {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        console.log('사용자 데이터 가져오기 성공:', response.data);
         setUserInfo(response.data);
       } catch (error) {
-        console.log('사용자 정보를 가져오지 못했습니다', error);
+        console.log('사용자 데이터를 가져오기 실패', error);
       }
     };
-    user();
+    getUserInfo();
   }, [accessToken]);
 
   const handleLogout = () => {
@@ -27,15 +32,17 @@ function Header() {
       console.log('로그아웃 되었습니다.');
     }
   };
+
   return (
     <div className={styles.miniinfo}>
       <div className={styles.headwrap}>
         <p className={styles.nickname}>
-          {userInfo && userInfo.nickname}
+          {userInfo ? userInfo.nickname : 'Guest'}
         </p>
         <button type="button" className={styles.logout} onClick={handleLogout}>로그아웃</button>
       </div>
     </div>
   );
 }
+
 export default Header;

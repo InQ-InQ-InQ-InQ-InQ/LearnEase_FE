@@ -7,8 +7,7 @@ import Header from '../component/Header';
 
 function MyPage() {
   const accessToken = sessionStorage.getItem('accessToken');
-  const [userName, setUserName] = useState('');
-  const [userEmail, setUserEmail] = useState('');
+  const [userInfo, setUserInfo] = useState('');
   const [editAccount, setEditAccount] = useState(false);
   const [goals, setGoals] = useState([
     { id: 1, name: '정보처리기사실기', date: '23/10/15~23/12/15' },
@@ -16,23 +15,20 @@ function MyPage() {
   ]);
 
   useEffect(() => {
-    async function getProfile() {
+    const getUserInfo = async () => {
       try {
-        const response = await axios.get('/api/users/profile', {
+        const response = await axios.get('/api/me', {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
         });
         console.log('사용자 데이터 가져오기 성공:', response.data);
-
-        const user = response.data;
-        setUserName(user.userName);
-        setUserEmail(user.userEmail);
+        setUserInfo(response.data);
       } catch (error) {
-        console.error('프로필 가져오기 실패', error);
+        console.error('사용자 데이터 가져오기 실패', error);
       }
-    }
-    getProfile();
+    };
+    getUserInfo();
   }, [accessToken]);
 
   const editHandler = () => {
@@ -60,20 +56,17 @@ function MyPage() {
         <div className={styles.headprofile}>
           <div className={styles.userinfo}>
             <p className={styles.text}>
-              홍길동
-              {userName}
+              {userInfo && userInfo.nickname}
             </p>
             <p className={styles.mail}>
-              gdflflk@gmail.com
-              {userEmail}
+              {userInfo && userInfo.loginId}
             </p>
           </div>
           <button type="button" className={styles.profileeditbtn} onClick={editHandler}>Edit Account</button>
         </div>
         <div className={styles.bodyprofile}>
           <p className={styles.text1}>
-            홍길동
-            {userName}
+            {userInfo && userInfo.nickname}
             님의 목표
           </p>
           {' '}
