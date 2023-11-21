@@ -11,6 +11,7 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const [nickname, setNickname] = useState('');
   const [startButton, setStartButton] = useState(false);
+  const [agreeTerm, setAgreeTerm] = useState(false);
 
   // 유효성
   const [EmailValid, setEmailValid] = useState(false);
@@ -168,40 +169,52 @@ const SignUp = () => {
     return () => clearInterval(interval);
   }, [CertificationSent, TimerVisible]);
 
-  const startButtonClick = async () => {
-    if (CertificationSent) {
+  const signUpRequest = async () => {
+    try {
       const userData = {
-        email,
+        loginId: email,
         password,
         nickname,
       };
-      try {
-        // 서버에 사용자 데이터를 전송
-        const response = await axios.post('/api/signup', userData);
 
-        if (response.data.success) {
-          alert('회원가입이 완료되었습니다.');
-          // 회원가입 완료 후 할 동작
-          navigate('/api/login');
-        } else {
-          alert('회원가입 중 오류가 발생했습니다.');
-        }
-      } catch (error) {
-        console.error('오류 발생: 회원가입', error);
-        alert('오류가 발생했습니다.');
+      const response = await axios.post('/api/user', userData);
+
+      if (response.data.id) {
+        alert('회원가입이 완료되었습니다.');
+        navigate('/api/login');
+      } else {
+        alert('회원가입 중 오류가 발생했습니다.');
       }
+    } catch (error) {
+      console.error('오류 발생: 회원가입', error);
+      alert('오류가 발생했습니다.');
+    }
+  };
+
+  const startButtonClick = async () => {
+    if (CertificationSent) {
+      signUpRequest();
     } else {
       alert('인증이 완료되지 않았습니다.');
     }
   };
 
-  useEffect(() => {
-    // eslint-disable-next-line
-    const isValid =
-      EmailValid && CertificationSent && passwordValid && nicknameValid;
-    setStartButton(isValid);
-  }, [EmailValid, CertificationSent, passwordValid, nicknameValid]);
+  // 체크박스 동의
+  const agreeTermChange = () => {
+    setAgreeTerm((prevAgreeTerm) => !prevAgreeTerm);
+  };
 
+  useEffect(() => {
+    /* eslint-disable */
+    const isValid =
+      EmailValid &&
+      CertificationSent &&
+      passwordValid &&
+      nicknameValid &&
+      agreeTerm;
+    setStartButton(isValid);
+  }, [EmailValid, CertificationSent, passwordValid, nicknameValid, agreeTerm]);
+  /* eslint-enable */
   return (
     <div className={styles.viewport}>
       <div className={styles.box}>
@@ -299,7 +312,23 @@ const SignUp = () => {
               확인
             </button>
           </div>
-
+          {/* eslint-disable jsx-a11y/label-has-associated-control */}
+          <div
+            className={styles.wrap}
+            style={{
+              fontSize: 'small',
+              marginTop: '10px',
+            }}
+          >
+            <label htmlFor="agreeTerm">개인정보 제공에 동의합니다</label>
+            <input
+              type="checkbox"
+              id="agreeTerm"
+              checked={agreeTerm}
+              onChange={agreeTermChange}
+            />
+          </div>
+          {/* eslint-enable jsx-a11y/label-has-associated-control */}
           <button
             type="button"
             className={`${styles.startBtn} ${
