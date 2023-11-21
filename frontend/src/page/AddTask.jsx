@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import styles from '../style/EditAccount.module.css';
+import styles from '../style/AddTask.module.css';
 
 function AddTask() {
   const accessToken = sessionStorage.getItem('accessToken');
@@ -52,27 +52,29 @@ function AddTask() {
     <div>
       {modalVisible && (
         <div className={styles.screen}>
-          <div className={styles.editscreen}>
+          <div className={styles.addtaskscreen}>
             <button type="button" className={styles.out} onClick={closeModal}>
               X
             </button>
             <div className={styles.wrap}>
-              <div className={styles.editscreen}>
+              <div className={styles.addtaskscreen}>
                 <button type="button" className={styles.out} onClick={closeModal}>
                   X
                 </button>
                 <div className={styles.wrap}>
                   <div className={styles.box}>
                     <p className={styles.text}>Category</p>
-                    <input type="text" value={category} onChange={handleCategoryChange} />
+                    <div className={styles.taskwrap}>
+                      <input type="text" className={styles.inputtxt} onChange={handleCategoryChange} />
+                    </div>
                   </div>
                   <div className={styles.box}>
                     <p className={styles.text}>Task</p>
-                    <input type="text" value={task} onChange={handleTaskChange} />
+                    <div className={styles.taskwrap}>
+                      <input type="text" className={styles.inputtxt} onChange={handleTaskChange} />
+                    </div>
                   </div>
-                  <button type="button" onClick={saveTask}>
-                    저장
-                  </button>
+                  <button type="button" className={styles.savebtn} onClick={saveTask}>저장</button>
                 </div>
               </div>
             </div>
