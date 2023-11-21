@@ -5,13 +5,13 @@ const AddGoal = () => (
   <div className={styles.screen}>
     <div className={styles.addscreen}>
       <button type="button" className={styles.out}>X</button>
-      <div>
-        <p>자격증 새로 등록하기</p>
-        <div>
-          <p>자격증 명</p>
-          <input type="text" />
+      <div className={styles.box}>
+        <p className={styles.text1}>자격증 새로 등록하기</p>
+        <div className={styles.wrap}>
+          <p className={styles.text2}>자격증 명</p>
+          <input type="text" className={styles.input} />
         </div>
-        <button type="button">자격증 등록하기</button>
+        <input type="submit" className={styles.submitbtn} value="자격증 등록하기" />
       </div>
     </div>
   </div>
