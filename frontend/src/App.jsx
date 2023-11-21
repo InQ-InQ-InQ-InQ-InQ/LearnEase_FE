@@ -11,6 +11,7 @@ import Login from './page/Login';
 import SignUp from './page/SignUp';
 import MyPage from './page/MyPage';
 import Today from './page/Today';
+import Make from './page/Make';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route exact path="/api/signup" element={<SignUp />} />
         <Route exact path="/profile" element={<MyPage />} />
         <Route exact path="/today" element={<Today />} />
+        <Route exact path="/plan" element={<Make />} />
       </Routes>
     </Router>
   );

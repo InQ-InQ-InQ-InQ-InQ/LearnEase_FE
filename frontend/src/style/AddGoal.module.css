@@ -1,0 +1,68 @@
+.screen{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(17, 17, 17, 0.4);
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+}
+
+.addscreen{
+    width: 40%;
+    height: 45%;
+    background-color: #e9e9e9;
+    position: fixed;
+    top: 25%;
+    border-radius: 10px;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+.out{
+    position: absolute;
+    right: 0;
+    margin: 10px;
+    border: none;
+}
+.box{
+    height: 80%;
+    margin-top: 70px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+.text1{
+    font-size: large;
+    font-weight: 600;
+}
+.text2{
+    font-size: medium;
+    font-weight: 600;
+}
+.input{
+    width: 75%;
+    height: 35px;
+    margin-left: 30px;
+    margin-top: 7px;
+    padding-left: 20px;
+}
+.wrap{
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    width: 90%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 40px;
+}
+.submitbtn{
+    width: 30%;
+    height: 40px;
+    background-color: lightgray;
+    border: none;
+}
