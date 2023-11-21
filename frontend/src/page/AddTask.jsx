@@ -29,7 +29,7 @@ function AddTask() {
       const response = await axios.post(
         '/task',
         {
-          task,
+          name: task,
           date: formattedDate,
           time: formattedTime,
           category,
