@@ -91,8 +91,10 @@
     width: 45%;
     border-radius: 5px;
     font-size: medium;
+    border: none;
 }
 .goaleditbtn{
     position: absolute;
     right: 0;
+    border: none;
 }

@@ -1,17 +1,51 @@
 import React, { useState } from 'react';
 import SideBar from '../component/SideBar';
 import styles from '../style/Make.module.css';
+import AddGoal from './AddGoal';
+import AddCourse from './AddCourse';
 
 const Make = () => {
     const [addGoal, setAddGoal] = useState(false);
     const [addCourse, setAddCourse] = useState(false);
+    const [goalList, setGoalList] = useState([]);
+    const [courses, setCourses] = useState([]);
+    const [buttonStates, setButtonStates] = useState([
+        { day: '월', pressed: false },
+        { day: '화', pressed: false },
+        { day: '수', pressed: false },
+        { day: '목', pressed: false },
+        { day: '금', pressed: false },
+        { day: '토', pressed: false },
+        { day: '일', pressed: false },
+      ]);
 
-    const addgoalHandler = () => {
+    const addgoalHandler = (goalName) => {
+        setAddGoal(false);
+        // 새로운 자격증 추가와 상태 업데이트
+        setGoalList([...goalList, goalName]);
+    };
+    const addcourseHandler = (courseData) => {
+        setAddCourse(false);
+        // 새로운 코스 추가와 상태 업데이트
+        setCourses([...courses, courseData]);
+    };
+    const openAddgoalHandler = () => {
         setAddGoal(true);
     };
-    const addcourseHandler = () => {
+    const openAddcourseHandler = () => {
         setAddCourse(true);
     };
+    const closeGoalHandler = () => {
+        setAddGoal(false);
+    };
+    const closeCourseHandler = () => {
+        setAddCourse(false);
+    };
+    const btnclickHandler = (index) => {
+        const updatedButtonStates = [...buttonStates];
+        updatedButtonStates[index].pressed = !updatedButtonStates[index].pressed;
+        setButtonStates(updatedButtonStates);
+      };
     return (
 
       <div className={styles.viewport}>
@@ -21,19 +55,25 @@ const Make = () => {
           <div className={styles.wrapping}>
             <p className={styles.text2}>목표 자격증</p>
             <div className={styles.box1}>
-              <input
-                type="selectbox"
-                className={styles.input1}
-                placeholder="자격증 선택"
-              />
-              <button type="button" className={styles.addbtn} onClick={addgoalHandler}>새로 등록하기</button>
+              <select className={styles.input1}>
+                <option value="" disabled selected hidden>자격증 선택</option>
+                {goalList.map((goal) => (
+                  <option key={goal} value={goal}>{goal}</option>
+          ))}
+              </select>
+              <button type="button" className={styles.addbtn} onClick={openAddgoalHandler}>새로 등록하기</button>
             </div>
           </div>
           <div className={styles.wrapping}>
             <p className={styles.text2}>추천 도서 및 강의</p>
             <div className={styles.box1}>
-              <input type="selectbox" className={styles.input1} placeholder="추천 도서 및 강의 선택" />
-              <button type="button" className={styles.addbtn} onClick={addcourseHandler}>새로 등록하기</button>
+              <select className={styles.input1}>
+                <option value="" disabled selected hidden>추천 도서 및 강의 선택</option>
+                {courses.map((course) => (
+                  <option key={course.courseName} value={course.courseName}>{course}</option>
+          ))}
+              </select>
+              <button type="button" className={styles.addbtn} onClick={openAddcourseHandler}>새로 등록하기</button>
             </div>
           </div>
           <div className={styles.box0}>
@@ -49,21 +89,24 @@ const Make = () => {
           <div className={styles.box3}>
             <p className={styles.text2}>공부할 요일</p>
             <div className={styles.wrap}>
-              <button type="button" className={styles.datebtn}>월</button>
-              <button type="button" className={styles.datebtn}>화</button>
-              <button type="button" className={styles.datebtn}>수</button>
-              <button type="button" className={styles.datebtn}>목</button>
-              <button type="button" className={styles.datebtn}>금</button>
-              <button type="button" className={styles.datebtn}>토</button>
-              <button type="button" className={styles.datebtn}>일</button>
+              {buttonStates.map((button, index) => (
+                <button
+                  key={button.day}
+                  type="button"
+                  className={`${styles.datebtn} ${button.pressed ? styles.btnpressed : ''}`}
+                  onClick={() => btnclickHandler(index)}
+                >
+                  {button.day}
+                </button>
+      ))}
             </div>
           </div>
           <div className={styles.box4}>
-            <input type="submit" className={styles.submitbtn} value="플래너 생성하기" />
+            <button type="submit" className={styles.submitbtn}>플래너 생성하기</button>
           </div>
         </div>
-        {addGoal && <addGoal />}
-        {addCourse && <addCourse />}
+        {addGoal && <AddGoal onClose={closeGoalHandler} onAddGoal={addgoalHandler} />}
+        {addCourse && <AddCourse onClose={closeCourseHandler} onAddCourse={addcourseHandler} />}
       </div>
 );
 };

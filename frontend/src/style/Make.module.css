@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: row;
     background-color: #e9e9e9;
-    height: 900px;
+    height: 740px;
 }
 .container{
     margin-left: 400px;
@@ -20,7 +20,7 @@
     font-weight: 600;
 }
 .wrapping{
-    margin-top: 35px;
+    margin-top: 40px;
 }
 .box1{
     width: 85%;
@@ -71,9 +71,10 @@
     height: 100%;
     margin-right: 35px;
     border: none;
-    background-color: lightgray;
+    background-color: white;
     font-weight: 600;
     font-size: medium;
+    border-radius: 5px;
 }
 .submitbtn{
     width: 30%;
@@ -88,4 +89,7 @@
     height: 45px;
     text-align: center;
     margin-top: 70px;
+}
+.btnpressed{
+    background-color: lightgray;
 }
