@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../component/Header';
 import SideBar from '../component/SideBar';
 import styles from '../style/Today.module.css';
+import AddTask from './AddTask';
 
 function Today() {
   const today = new Date();
+  const [addTask, setAddTask] = useState(false);
 
   const formattedDate = `${today.getFullYear()}. ${today.getMonth() + 1}. ${today.getDate()}`;
+
+  const taskHandler = () => {
+    setAddTask(true);
+  };
 
     return (
       <div className={styles.viewport}>
@@ -23,7 +29,7 @@ function Today() {
               </div>
             </div>
             <div className={styles.midwrap}>
-              <button type="button" className={styles.addbtn}>Add New Task</button>
+              <button type="button" className={styles.addbtn} onClick={taskHandler}>Add New Task</button>
             </div>
             <div className={styles.mainwrap}>
               <div className={styles.top}>
@@ -49,6 +55,7 @@ function Today() {
             </div>
           </div>
         </div>
+        {addTask && <AddTask />}
       </div>
     );
 }

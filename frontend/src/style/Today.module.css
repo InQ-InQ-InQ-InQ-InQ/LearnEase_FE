@@ -45,7 +45,7 @@
     color: white;
     background-color: lightgray;
     border: none;
-    
+    cursor: pointer;
 }
 .mainwrap{
     width: 85%;
