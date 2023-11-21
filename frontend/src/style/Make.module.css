@@ -1,0 +1,11 @@
+.viewport{
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    background-color: #e9e9e9;
+    height: 900px;
+}
+.container{
+    margin-left: 400px;
+}
