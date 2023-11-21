@@ -9,9 +9,9 @@
 
 .box {
   width: 60%;
-  height: 500px;
+  height: 100%;
   border: 1px solid black;
-  margin-top: 80px;
+  margin-top: 50px;
   border-radius: 15px;
   position: relative;
   display: flex;
@@ -29,6 +29,7 @@
 }
 
 .wrap {
+  position: relative;
   justify-content: center;
   align-items: center;
   height: 15%;
@@ -53,23 +54,10 @@
   padding-left: 10px;
 }
 
-.emailbutton {
-  height: 44px;
-  width: 20%;
-  background-color: lightgray;
-  color: white;
-  font-weight: 600;
-  font-size: large;
-  border-radius: 5px;
-  border: none;
-  margin-left: 10px;
-  margin-top: -10px;
-}
-
 .button {
   height: 44px;
-  line-height: 50px;
   width: 20%;
+  line-height: 2;
   background-color: lightgray;
   color: white;
   font-weight: 600;
@@ -90,7 +78,8 @@
   font-size: large;
   font-weight: 600;
   margin-left: 130px;
-  margin-top: 28px;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
 .certification {
@@ -115,4 +104,5 @@
   color: red;
   font-size: 14px;
   margin-top: 5px;
+  position: relative;
 }
