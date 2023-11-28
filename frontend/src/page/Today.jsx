@@ -4,18 +4,16 @@ import Header from '../component/Header';
 import SideBar from '../component/SideBar';
 import styles from '../style/Today.module.css';
 import AddTask from './AddTask';
+import DayInfo from '../component/DayInfo';
 
 function Today() {
   const accessToken = sessionStorage.getItem('accessToken');
-  const today = new Date();
   const [addTask, setAddTask] = useState(false); // task 추가
   const [tasks, setTasks] = useState([
     { id: 1, category: '자격증', content: 'Chapter1. 요구사항 확인하기' },
     { id: 2, category: '자격증', content: 'Chapter2. 설계하기' },
     { id: 3, category: '프로젝트', content: '프로젝트 A 완료하기' },
   ]);
-
-  const formattedDate = `${today.getFullYear()}. ${today.getMonth() + 1}. ${today.getDate()}`;
 
   const taskHandler = () => {
     setAddTask(true);
@@ -45,14 +43,7 @@ function Today() {
         <div className={styles.container}>
           <Header />
           <div className={styles.contents}>
-            <div className={styles.headwrap}>
-              <p className={styles.date}>{formattedDate}</p>
-              {/* 정보 가져오기 */}
-              <div className={styles.info}>
-                <div className={styles.date}>D-45</div>
-                <div className={styles.title}>정보처리기사실기</div>
-              </div>
-            </div>
+            <DayInfo />
             <div className={styles.midwrap}>
               <button type="button" className={styles.addbtn} onClick={taskHandler}>Add New Task</button>
             </div>

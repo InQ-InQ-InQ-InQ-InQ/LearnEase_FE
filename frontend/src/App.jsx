@@ -12,6 +12,7 @@ import SignUp from './page/SignUp';
 import MyPage from './page/MyPage';
 import Today from './page/Today';
 import Make from './page/Make';
+import Weekly from './page/Weekly';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route exact path="/profile" element={<MyPage />} />
         <Route exact path="/today" element={<Today />} />
         <Route exact path="/plan" element={<Make />} />
+        <Route exact path="/weekly" element={<Weekly />} />
       </Routes>
     </Router>
   );

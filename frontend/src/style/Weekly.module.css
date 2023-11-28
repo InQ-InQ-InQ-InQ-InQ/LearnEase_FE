@@ -33,41 +33,33 @@
     background-color: white;
     border: 1px solid lightgray;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     box-shadow: 0 0 10px -7px;
 }
-.top{
+.day{
+    width: 14.5%;
+    height: 100%;
+    border: 1px solid #e9e9e9;
     display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 50px;
-    border-bottom: 1px solid lightgray;
-    font-size: medium;
-    font-weight: 600;
-    color: gray;
-    align-items: center;
+    flex-direction: column;
     text-align: center;
+   
 }
-.toptext{
-    margin-left: 210px;
+.dayhead{
+    width: 100%;
+    height: 20%;
+    border-bottom: 1px solid #e9e9e9;
+    font-size: large;
+    font-weight: 600;
 }
-.taskwrap{
+.taskbox{
     display: flex;
     flex-direction: row;
-    width: 95%;
-    height: 50px;
-    border-bottom: 1px solid #e9e9e9;
 }
-.check{
-    margin-right: 80px;
-    margin-left: 50px;
-}
-.value{
-    margin-right: 80px;
+.daycontents{
+    width: 100%;
+    height: 80%;
     font-size: medium;
-    font-weight: 600;
-    color: gray;
-    margin-top: 15px;
-    margin-left: 50px;
+   
 }
