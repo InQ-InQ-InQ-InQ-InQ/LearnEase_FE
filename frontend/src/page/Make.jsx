@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import SideBar from '../component/SideBar';
 import styles from '../style/Make.module.css';
 import AddGoal from './AddGoal';
 import AddCourse from './AddCourse';
 
 const Make = () => {
-    const [addGoal, setAddGoal] = useState(false);
-    const [addCourse, setAddCourse] = useState(false);
+    const accessToken = sessionStorage.getItem('accessToken');
     const [goalList, setGoalList] = useState([]);
+    const [addGoal, setAddGoal] = useState(false);
     const [courses, setCourses] = useState([]);
+    const [addCourse, setAddCourse] = useState(false);
     const [buttonStates, setButtonStates] = useState([
         { day: '월', pressed: false },
         { day: '화', pressed: false },
@@ -18,6 +20,40 @@ const Make = () => {
         { day: '토', pressed: false },
         { day: '일', pressed: false },
       ]);
+
+    useEffect(() => {
+        const getGoalList = async () => {
+            try {
+                const response = await axios.get('/api/goals', {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                    },
+                });
+                setGoalList(response.data);
+                console.log('목표 자격증 데이터 가져오기 성공: ', response.data);
+            } catch (error) {
+                console.error('목표 자격증 데이터를 가져오지 못했습니다.', error.message);
+            }
+        };
+        getGoalList();
+    }, [accessToken]);
+
+    useEffect(() => {
+        const getCourse = async () => {
+            try {
+                const response = await axios.get('/api/courses', {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                    },
+                });
+                setCourses(response.data);
+                console.log('추천 도서 및 강의 데이터 가져오기 성공: ', response.data);
+            } catch (error) {
+                console.error('추천 도서 및 강의 데이터를 가져오지 못했습니다.: ', error.message);
+            }
+        };
+        getCourse();
+    }, [accessToken]);
 
     const addgoalHandler = (goalName) => {
         setAddGoal(false);
@@ -58,7 +94,7 @@ const Make = () => {
               <select className={styles.input1}>
                 <option value="" disabled selected hidden>자격증 선택</option>
                 {goalList.map((goal) => (
-                  <option key={goal} value={goal}>{goal}</option>
+                  <option key={goal.name} value={goal.name}>{goal.name}</option>
           ))}
               </select>
               <button type="button" className={styles.addbtn} onClick={openAddgoalHandler}>새로 등록하기</button>
@@ -70,7 +106,7 @@ const Make = () => {
               <select className={styles.input1}>
                 <option value="" disabled selected hidden>추천 도서 및 강의 선택</option>
                 {courses.map((course) => (
-                  <option key={course.courseName} value={course.courseName}>{course}</option>
+                  <option key={course.name} value={course.name}>{course.name}</option>
           ))}
               </select>
               <button type="button" className={styles.addbtn} onClick={openAddcourseHandler}>새로 등록하기</button>
