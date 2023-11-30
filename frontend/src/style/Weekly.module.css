@@ -56,10 +56,11 @@
 .taskbox{
     display: flex;
     flex-direction: row;
+    font-size: medium;
+    font-weight: 600;
 }
 .daycontents{
     width: 100%;
     height: 80%;
-    font-size: medium;
    
 }
