@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import styles from '../style/AddCourse.module.css';
 
 const AddCourse = ({ onClose, onAddCourse }) => {
+  const accessToken = sessionStorage.getItem('accessToken');
   const [courseName, setCourseName] = useState('');
   const [chapters, setChapters] = useState([{ title: 'Chapter 1', subTitle: '' }]);
 
@@ -11,10 +13,32 @@ const AddCourse = ({ onClose, onAddCourse }) => {
     setChapters([...chapters, newChapter]);
   };
 
-  const saveCourseHandler = () => {
-    const courseData = { courseName, chapters };
-    onAddCourse(courseData);
-    onClose();
+  const saveCourseHandler = async () => {
+    try {
+      const response = await axios.post('/api/goals', {
+        courseName,
+        chapters,
+      }, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      onAddCourse(response.data);
+      onClose();
+    } catch (error) {
+      console.error('Chapter 추가 실패', error.response);
+      onClose();
+    }
+  };
+
+  const deleteChapterHandler = (deleteIndex) => {
+    const updatedChapters = [...chapters];
+    updatedChapters.splice(deleteIndex, 1);
+    const sortedChapters = updatedChapters.map((chapter, index) => ({
+      ...chapter,
+      title: `Chapter ${index + 1}`,
+    }));
+    setChapters(sortedChapters);
   };
 
   const outHandler = () => {
@@ -35,7 +59,7 @@ const AddCourse = ({ onClose, onAddCourse }) => {
           />
           <div className={styles.innerbox}>
             {chapters.map((chapter, index) => (
-              <div key={`chapter-${index}`} className={styles.wrap}>
+              <div key={`chapter-${chapter.id}`} className={styles.wrap}>
                 <p className={styles.text}>{chapter.title}</p>
                 <input
                   type="text"
@@ -47,6 +71,13 @@ const AddCourse = ({ onClose, onAddCourse }) => {
                     setChapters(updatedChapters);
                   }}
                 />
+                <button
+                  type="button"
+                  className={styles.deleteChapterBtn}
+                  onClick={() => deleteChapterHandler(index)}
+                >
+                  -
+                </button>
               </div>
             ))}
             <button type="button" className={styles.addChapterBtn} onClick={addChapterHandler}>+</button>
