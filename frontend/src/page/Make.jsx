@@ -20,6 +20,13 @@ const Make = () => {
         { day: '토', pressed: false },
         { day: '일', pressed: false },
       ]);
+    const [plannerData] = useState({
+        goal: '',
+        course: '',
+        startDate: '',
+        endDate: '',
+        studyDays: [],
+    });
 
     useEffect(() => {
         const getGoalList = async () => {
@@ -36,7 +43,7 @@ const Make = () => {
             }
         };
         getGoalList();
-    }, [accessToken]);
+    }, []);
 
     useEffect(() => {
         const getCourse = async () => {
@@ -49,11 +56,11 @@ const Make = () => {
                 setCourses(response.data);
                 console.log('추천 도서 및 강의 데이터 가져오기 성공: ', response.data);
             } catch (error) {
-                console.error('추천 도서 및 강의 데이터를 가져오지 못했습니다.: ', error.message);
+                console.error('추천 도서 및 강의 데이터를 가져오지 못했습니다: ', error.message);
             }
         };
         getCourse();
-    }, [accessToken]);
+    }, []);
 
     const addgoalHandler = (goalName) => {
         setAddGoal(false);
@@ -81,7 +88,28 @@ const Make = () => {
         const updatedButtonStates = [...buttonStates];
         updatedButtonStates[index].pressed = !updatedButtonStates[index].pressed;
         setButtonStates(updatedButtonStates);
-      };
+    };
+
+    const createPlannerHandler = async () => {
+        try {
+            const selectedData = {
+                goal: plannerData.goal,
+                course: plannerData.course,
+                startDate: plannerData.startDate,
+                endDate: plannerData.endDate,
+                studyDays: plannerData.studyDays,
+            };
+            const response = await axios.post('/api/createPlanners', selectedData, {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            });
+            console.log('자동 플래닝 생성을 데이터를 전송하였습니다: ', response.data);
+        } catch (error) {
+            console.error('자동 플래닝 생성을 데이터를 전송하지 못하였습니다: ', error);
+        }
+    };
+
     return (
 
       <div className={styles.viewport}>
@@ -138,12 +166,12 @@ const Make = () => {
             </div>
           </div>
           <div className={styles.box4}>
-            <button type="submit" className={styles.submitbtn}>플래너 생성하기</button>
+            <button type="submit" className={styles.submitbtn} onClick={createPlannerHandler}>플래너 생성하기</button>
           </div>
         </div>
         {addGoal && <AddGoal onClose={closeGoalHandler} onAddGoal={addgoalHandler} />}
         {addCourse && <AddCourse onClose={closeCourseHandler} onAddCourse={addcourseHandler} />}
       </div>
-);
+    );
 };
 export default Make;
