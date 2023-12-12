@@ -1,13 +1,27 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import styles from '../style/AddGoal.module.css';
 
 const AddGoal = ({ onClose, onAddGoal }) => {
+    const accessToken = sessionStorage.getItem('accessToken');
     const [goalName, setGoalName] = useState('');
 
-    const saveGoalHandler = () => {
-        onAddGoal(goalName);
-        onClose();
+    const saveGoalHandler = async () => {
+        try {
+            const response = await axios.post('/api/goals', {
+                goalName,
+            }, {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            });
+            onAddGoal(response.data);
+            onClose();
+        } catch (error) {
+            console.error('자격증 추가에 실패했습니다.', error.response);
+            onClose();
+        }
     };
     const outHandler = () => {
         onClose();

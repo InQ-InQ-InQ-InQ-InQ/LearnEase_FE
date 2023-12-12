@@ -26,34 +26,33 @@ function SideBar({ currentPage }) {
                 <button type="button" className={styles.arrowicon} onClick={sideHandler}>{sideOpen ? '<<' : '>>'}</button>
               </div>
               <nav className={styles.navigation}>
-                <a href="/today" className={styles.menu}>
+                <a href="/api/today" className={styles.menu}>
                   <BsSun />
                   <div className={`ml-5 -mt-1 ${currentPage === 1 ? 'text-red' : ''}`}>Today</div>
                 </a>
-                <a href="/weekly" className={styles.menu}>
+                <a href="/api/weekly" className={styles.menu}>
                   <AiOutlineCalendar />
                   <div className={`ml-5 -mt-1 ${currentPage === 2 ? 'text-red' : ''}`}>Weekly</div>
                 </a>
-                <a href="/plan" className={styles.menu}>
+                <a href="/api/plan" className={styles.menu}>
                   <AiOutlineThunderbolt />
                   <div className={`ml-5 -mt-1 ${currentPage === 3 ? 'text-red' : ''}`}>Make Plan</div>
                 </a>
-                <a href="/community" className={styles.menu}>
+                <a href="/api/community" className={styles.menu}>
 
                   <TfiWorld />
                   <div className={`ml-5 -mt-1 ${currentPage === 4 ? 'text-red' : ''}`}>Community</div>
-
                 </a>
               </nav>
             </div>
             <hr />
             <div className={styles.wrap}>
               <nav className={styles.navigation}>
-                <a href="/setting" className={styles.menu}>
+                <a href="/api/setting" className={styles.menu}>
                   <FiSettings />
                   <div className={`ml-5 -mt-1 ${currentPage === 5 ? 'text-red' : ''}`}>Setting</div>
                 </a>
-                <a href="/profile" className={styles.menu}>
+                <a href="/api/profile" className={styles.menu}>
                   <FaRegUser />
                   <div className={`ml-5 -mt-1 ${currentPage === 6 ? 'text-red' : ''}`}>My Page</div>
                 </a>

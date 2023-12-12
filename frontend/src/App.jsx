@@ -21,10 +21,10 @@ function App() {
         <Route path="/" element={<Navigate to="/api/login" />} />
         <Route exact path="/api/login" element={<Login />} />
         <Route exact path="/api/signup" element={<SignUp />} />
-        <Route exact path="/profile" element={<MyPage />} />
-        <Route exact path="/today" element={<Today />} />
-        <Route exact path="/plan" element={<Make />} />
-        <Route exact path="/weekly" element={<Weekly />} />
+        <Route exact path="/api/profile" element={<MyPage />} />
+        <Route exact path="/api/today" element={<Today />} />
+        <Route exact path="/api/plan" element={<Make />} />
+        <Route exact path="/api/weekly" element={<Weekly />} />
       </Routes>
     </Router>
   );
