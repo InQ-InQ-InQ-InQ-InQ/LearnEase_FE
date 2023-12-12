@@ -1,19 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import styles from '../style/SignUp.module.css';
 import sample from '../img/sample.png';
 
 const SignUp = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
-  const [EmailValid, setEmailValid] = useState(false);
   const [certificationNumber, setCertificationNumber] = useState('');
-  const [CertificationSent, setCertificationSent] = useState(false);
   const [password, setPassword] = useState('');
-  const [passwordValid, setPasswordValid] = useState(false);
   const [nickname, setNickname] = useState('');
-  const [nicknameValid, setNicknameValid] = useState(false);
   const [startButton, setStartButton] = useState(false);
+  const [agreeTerm, setAgreeTerm] = useState(false);
+
+  // 유효성
+  const [EmailValid, setEmailValid] = useState(false);
+  const [CertificationSent, setCertificationSent] = useState(false);
+  const [passwordValid, setPasswordValid] = useState(false);
+  const [nicknameValid, setNicknameValid] = useState(false);
 
   // 타이머
   const [timer, setTimer] = useState(300);
@@ -28,52 +32,114 @@ const SignUp = () => {
   // 정규식 - 비밀번호 8-20자리, 영문자, 숫자, 특수 문자 최소 1개씩 포함
   const pwRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()-_+=<>?]{8,20}$/;
 
-  // 닉네임 유효성 검사 - 한글, 영문, 특수문자 포함, 2~6글자
-  const nicknameRegex = /^[\w\Wㄱ-ㅎㅏ-ㅣ가-힣]{2,6}$/;
+  // 정규식 - 닉네임 한글, 영문, 숫자, 특수문자 제외, 2~7글자
+  const nicknameRegex = /^[ㄱ-ㅎ가-힣a-zA-Z0-9]{2,7}$/;
+
+  // 닉네임 입력 후 상태 업데이트
+  const nicknameChange = (event) => {
+    const newNickname = event.target.value;
+    setNickname(newNickname);
+
+    let newNicknameBorderColor = '';
+    if (newNickname !== '') {
+      const isValid = nicknameRegex.test(newNickname);
+      setNicknameValid(isValid);
+      newNicknameBorderColor = isValid ? 'limegreen' : 'red';
+    }
+    setNicknameBorderColor(newNicknameBorderColor);
+  };
+
+  const nicknameDuplicateCheck = async () => {
+    if (nickname.trim() === '') {
+      alert('닉네임을 입력해주세요.');
+      setNicknameBorderColor('red');
+      return;
+    }
+
+    const isNicknameValid = nicknameRegex.test(nickname);
+    setNicknameValid(isNicknameValid);
+
+    if (!isNicknameValid) {
+      alert('올바른 닉네임 형식을 입력해주세요.');
+      setNicknameBorderColor('red');
+      return;
+    }
+
+    try {
+      // 백엔드 닉네임 중복 검사(임시로 /checkNicknameDuplicate 설정)
+      const response = await axios.post('/api/checkNicknameDuplicate', {
+        nickname,
+      });
+
+      if (response.data.duplicate) {
+        alert('이미 사용 중인 닉네임입니다.');
+        setNicknameValid(false);
+        setNicknameBorderColor('red');
+      } else {
+        setNicknameBorderColor('limegreen');
+        alert('사용 가능한 닉네임입니다.');
+      }
+    } catch (error) {
+      console.error('오류 발생:닉네임 중복 검사', error);
+      alert('오류가 발생했습니다.');
+    }
+  };
+
+  // 비밀번호 입력 후 상태 업데이트
+  const passwordChange = (event) => {
+    const newPassword = event.target.value;
+    setPassword(newPassword);
+
+    let newPWBorderColor = '';
+    if (newPassword !== '') {
+      const isValid = pwRegex.test(newPassword);
+      setPasswordValid(isValid);
+      newPWBorderColor = isValid ? 'limegreen' : 'red';
+    }
+    setPWBorderColor(newPWBorderColor);
+  };
 
   // 이메일 입력 후 상태 업데이트
   const emailChange = (event) => {
     const inputEmail = event.target.value;
     setEmail(inputEmail);
-    setEmailValid(/^\S+@\S+\.\S+$/.test(inputEmail));
+
+    const isEmailValid = event.target.checkValidity();
+    setEmailValid(isEmailValid);
+    setEmailBorderColor(isEmailValid ? 'limegreen' : 'red');
   };
 
-  // 이메일 중복 확인 (실제로는 백엔드와 통신)
-  const emailDuplicateCheck = () => {
-    // 이메일이 비어있는지 확인
+  const emailDuplicateCheck = async () => {
     if (email.trim() === '') {
       alert('이메일을 입력해주세요.');
       setEmailBorderColor('red');
       return;
     }
 
-    // 이메일이 올바른 형식인지 검사
-    const isEmailValid = /^\S+@\S+\.\S+$/.test(email);
-    setEmailValid(isEmailValid);
+    try {
+      // 백엔드 이메일 중복 검사(임시로 /checkEmailDuplicate 설정)
+      const response = await axios.post('/api/checkEmailDuplicate', {
+        email,
+      });
 
-    // 이메일 형식이 올바르지 않으면 경고 표시
-    if (!isEmailValid) {
-      alert('올바른 이메일 형식을 입력해주세요.');
-      setEmailBorderColor('red');
-      return;
-    }
-
-    // 예제 이메일, 실제론 백엔드 통신으로 중복 검사 필요
-    const emailDuplicate = email === 'example@example.com';
-    if (!emailDuplicate) {
-      setEmailBorderColor('limegreen');
-      alert('인증번호가 전송되었습니다.');
-      setCertificationSent(true);
-      setTimerVisible(true);
-      setTimer(300);
-    } else {
-      alert('이미 가입된 이메일입니다.');
-      setEmailValid(false);
-      setEmailBorderColor('red');
+      if (response.data.duplicate) {
+        alert('이미 가입된 이메일입니다.');
+        setEmailValid(false);
+        setEmailBorderColor('red');
+      } else {
+        setEmailBorderColor('limegreen');
+        alert('인증번호가 전송되었습니다.');
+        setCertificationSent(true);
+        setTimerVisible(true);
+        setTimer(300);
+      }
+    } catch (error) {
+      console.error('오류 발생:이메일 중복검사', error);
+      alert('오류가 발생했습니다.');
     }
   };
 
-  // 인증번호 확인
+  // 추후 노드메일러 사용 계획 중
   const checkCertificationNumber = () => {
     if (certificationNumber === '123456') {
       alert('인증번호가 확인되었습니다.');
@@ -103,84 +169,103 @@ const SignUp = () => {
     return () => clearInterval(interval);
   }, [CertificationSent, TimerVisible]);
 
-  // 비밀번호 입력 후 상태 업데이트
-  const passwordChange = (event) => {
-    const newPassword = event.target.value;
-    setPassword(newPassword);
+  const signUpRequest = async () => {
+    try {
+      const userData = {
+        loginId: email,
+        password,
+        nickname,
+      };
 
-    // 비밀번호 입력란이 비었을 때
-    let newPWBorderColor = '';
-    if (newPassword !== '') {
-      const isValid = pwRegex.test(newPassword);
-      setPasswordValid(isValid);
-      newPWBorderColor = isValid ? 'limegreen' : 'red';
-    }
-    setPWBorderColor(newPWBorderColor);
-  };
+      const response = await axios.post('/api/user', userData);
 
-  // 닉네임 입력 후 상태 업데이트
-  const nicknameChange = (event) => {
-    const newNickname = event.target.value;
-    setNickname(newNickname);
-
-    // 닉네임 입력란이 비었을 때
-    let newNicknameBorderColor = '';
-    if (newNickname !== '') {
-      const isValid = nicknameRegex.test(newNickname);
-      setNicknameValid(isValid);
-      newNicknameBorderColor = isValid ? 'limegreen' : 'red';
-    }
-    setNicknameBorderColor(newNicknameBorderColor);
-  };
-  /*
-    // 닉네임 중복 확인 (실제로는 백엔드와 통신)
-    const nicknameDuplicateCheck = () => {
-      // 닉네임 중복 여부 체크 필요
-      const nicknameExam = nickname === '홍길동';
-      if (!nicknameExam) {
-        setEmailBorderColor('limegreen');
-        setNicknameValid(true); // 중복되지 않을 경우 유효한 닉네임
+      if (response.data.id) {
+        alert('회원가입이 완료되었습니다.');
+        navigate('/api/login');
       } else {
-        setNicknameValid(false); // 중복될 경우
-        setEmailBorderColor('red');
+        alert('회원가입 중 오류가 발생했습니다.');
       }
-    };
-  */
+    } catch (error) {
+      console.error('오류 발생: 회원가입', error);
+      alert('오류가 발생했습니다.');
+    }
+  };
 
-  // Get Started! 버튼
-  const startButtonClick = () => {
+  const startButtonClick = async () => {
     if (CertificationSent) {
-      alert('회원가입이 완료되었습니다.');
-      // 회원가입 완료 후 할 동작
-      navigate('/api/login');
+      signUpRequest();
     } else {
       alert('인증이 완료되지 않았습니다.');
     }
   };
 
-  useEffect(() => {
-    // eslint-disable-next-line
-    const isValid =
-      EmailValid && CertificationSent && passwordValid && nicknameValid;
-    setStartButton(isValid);
-    /* 유효성 테스트용
-    console.log('EmailValid:', EmailValid);
-    console.log('CertificationSent:', CertificationSent);
-    console.log('passwordValid:', passwordValid);
-    console.log('nicknameValid:', nicknameValid);
-    console.log('isValid:', isValid);
-    setStartButton(isValid);
-    */
-  }, [EmailValid, CertificationSent, passwordValid, nicknameValid]);
+  // 체크박스 동의
+  const agreeTermChange = () => {
+    setAgreeTerm((prevAgreeTerm) => !prevAgreeTerm);
+  };
 
+  useEffect(() => {
+    /* eslint-disable */
+    const isValid =
+      EmailValid &&
+      CertificationSent &&
+      passwordValid &&
+      nicknameValid &&
+      agreeTerm;
+    setStartButton(isValid);
+  }, [EmailValid, CertificationSent, passwordValid, nicknameValid, agreeTerm]);
+  /* eslint-enable */
   return (
     <div className={styles.viewport}>
       <div className={styles.box}>
         <img src={sample} alt="" />
         <div className={styles.contents}>
-          {/* Email */}
           <div className={styles.wrap}>
-            <p>Email</p>
+            <p>닉네임</p>
+            <input
+              type="text"
+              className={`${styles.input} ${
+                !nicknameValid && nickname !== '' ? styles.invalid : ''
+              }`}
+              value={nickname}
+              onChange={nicknameChange}
+              style={{ borderColor: nicknameBorderColor }}
+            />
+            <button
+              type="button"
+              className={styles.button}
+              onClick={nicknameDuplicateCheck}
+            >
+              확인
+            </button>
+            {!nicknameValid && nickname !== '' && (
+              <div className={styles.invalidMessage}>
+                닉네임은 공백없이 2~7자 한글, 영문, 숫자만 가능합니다.
+              </div>
+            )}
+          </div>
+
+          <div className={styles.wrap}>
+            <p>비밀번호</p>
+            <input
+              type="password"
+              className={`${styles.input2} ${
+                !passwordValid && password !== '' ? styles.invalid : ''
+              }`}
+              value={password}
+              onChange={passwordChange}
+              style={{ borderColor: pwBorderColor }}
+            />
+            {!passwordValid && password !== '' && (
+              <div className={styles.invalidMessage}>
+                비밀번호는 공백 없이 8-20자의 영문, 숫자 or 특수 문자를 최소
+                하나씩 포함해야합니다.
+              </div>
+            )}
+          </div>
+
+          <div className={styles.wrap}>
+            <p>이메일</p>
             <div>
               <input
                 type="email"
@@ -191,18 +276,17 @@ const SignUp = () => {
               />
               <button
                 type="button"
-                className={styles.emailbutton}
+                className={styles.button}
                 onClick={emailDuplicateCheck}
               >
-                Send
+                보내기
               </button>
             </div>
           </div>
 
-          {/* Certification Number */}
           <div className={styles.wrap}>
             <div className={styles.certification}>
-              <p>Certification Number</p>
+              <p>인증번호</p>
               {TimerVisible && (
                 <div className={styles.timer}>
                   {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
@@ -225,46 +309,26 @@ const SignUp = () => {
               onClick={checkCertificationNumber}
               disabled={!CertificationSent}
             >
-              Confirm
+              확인
             </button>
           </div>
-
-          {/* Password */}
-          <div className={styles.wrap}>
-            <p style={{ marginTop: '30px' }}>Password</p>
+          {/* eslint-disable jsx-a11y/label-has-associated-control */}
+          <div
+            className={styles.wrap}
+            style={{
+              fontSize: 'small',
+              marginTop: '10px',
+            }}
+          >
+            <label htmlFor="agreeTerm">개인정보 제공에 동의합니다</label>
             <input
-              type="password"
-              className={`${styles.input2} ${
-                !passwordValid && password !== '' ? styles.invalid : ''
-              }`}
-              value={password}
-              onChange={passwordChange}
-              style={{ borderColor: pwBorderColor }}
-              disabled={!CertificationSent}
-            />
-            {!passwordValid && password !== '' && (
-              <div className={styles.invalidMessage}>
-                비밀번호는 공백 없이 8-20자의 영문, 숫자 및 특수 문자를 최소
-                하나씩 포함해야합니다.
-              </div>
-            )}
-          </div>
-
-          {/* Nickname */}
-          <div className={styles.wrap}>
-            <p>Nickname</p>
-            <input
-              type="text"
-              className={`${styles.input2} ${
-                !nicknameValid && nickname !== '' ? styles.invalid : ''
-              }`}
-              value={nickname}
-              onChange={nicknameChange}
-              style={{ borderColor: nicknameBorderColor }}
+              type="checkbox"
+              id="agreeTerm"
+              checked={agreeTerm}
+              onChange={agreeTermChange}
             />
           </div>
-
-          {/* Start */}
+          {/* eslint-enable jsx-a11y/label-has-associated-control */}
           <button
             type="button"
             className={`${styles.startBtn} ${
@@ -273,7 +337,7 @@ const SignUp = () => {
             onClick={startButtonClick}
             disabled={!startButton}
           >
-            Get Started!
+            회원가입하기
           </button>
         </div>
       </div>

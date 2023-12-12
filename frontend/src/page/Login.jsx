@@ -1,8 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import styles from '../style/Login.module.css';
 import sample from '../img/sample.png';
 
 function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  const setToken = (accessToken) => {
+    sessionStorage.setItem('accessToken', accessToken);
+    setIsLoggedIn(true);
+  };
+
+  const handleLogin = async () => {
+    try {
+      const account = {
+        loginEmail: email,
+        loginPassword: password,
+      };
+
+      const response = await axios.post('/api/login/auth', account);
+      const { accessToken, refreshToken } = response.data;
+      setToken(accessToken);
+      sessionStorage.setItem('refreshToken', refreshToken);
+      alert('로그인 성공');
+      navigate('/api/home');
+    } catch (error) {
+      alert(error.response.data.errorMessage);
+    }
+  };
+
   return (
     <div className={styles.viewport}>
       <div className={styles.box}>
@@ -10,7 +40,7 @@ function Login() {
         <div className={styles.contents}>
           <div className={styles.header}>
             <div className={styles.headerwrap}>
-              <p>Don&apost have an account?</p>
+              <p>회원가입</p>
               <a href="/api/signup">
                 <button type="button" className={styles.signUpBtn}>
                   Sign Up
@@ -20,21 +50,23 @@ function Login() {
           </div>
           <div className={styles.main}>
             <input
-              type="emil"
+              type="email"
               className={styles.input}
-              placeholder="Enter Your Email"
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="이메일을 입력해주세요."
             />
             <input
               type="password"
               className={styles.input}
-              placeholder="Enter Your Password"
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="비밀번호를 입력해주세요."
             />
           </div>
           <div className={styles.footer}>
-            <button type="button" className={styles.signInBtn}>
+            <button type="button" className={styles.signInBtn} onClick={handleLogin}>
               Sign In
             </button>
-            <p>Forgot password?</p>
+            <p>비밀번호 찾기</p>
           </div>
         </div>
       </div>
