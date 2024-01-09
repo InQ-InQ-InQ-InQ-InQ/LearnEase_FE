@@ -40,7 +40,7 @@ function Login() {
         <div className={styles.contents}>
           <div className={styles.header}>
             <div className={styles.headerwrap}>
-              <p className={styles.pText}> Don&apos;t have an account? </p>
+              <p className={styles.pText1}> Don&apos;t have an account? </p>
               <a href="/api/signup">
                 <button type="button" className={styles.signUpBtn}>
                   Sign Up
@@ -66,7 +66,7 @@ function Login() {
             <button type="button" className={styles.signInBtn} onClick={handleLogin}>
               Sign In
             </button>
-            <p className={styles.pText}>Forgot Password?</p>
+            <p className={styles.pText2}>Forgot Password?</p>
           </div>
         </div>
       </div>

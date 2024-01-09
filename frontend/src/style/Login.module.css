@@ -16,7 +16,7 @@
   border: none;
   box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.1);
 }
-.pText {
+.pText1 {
   color: #834741;
   font-family: Montserrat;
   font-size: 18px;
@@ -24,6 +24,16 @@
   font-weight: 400;
   line-height: normal;
   margin-left: 10px;
+}
+.pText2 {
+  color: #834741;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 .contents {
