@@ -16,6 +16,15 @@
   border: none;
   box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.1);
 }
+.pText {
+  color: #834741;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-left: 10px;
+}
 
 .contents {
   width: 50%;
@@ -51,6 +60,7 @@
   font-size: large;
   margin-top: 10px;
   border: none;
+  cursor: pointer;
 }
 .main {
   margin-top: 60px;
@@ -70,9 +80,11 @@
   border-radius: 5px;
 }
 .input::placeholder {
-  color: #834741; /* 원하는 색상으로 변경하세요 */
+  font-size: 15px;
+  color: #834741;
 }
 .footer {
+  margin-top: 10px;
   width: 100%;
   height: 25%;
   display: flex;
@@ -90,4 +102,5 @@
   height: 51px;
   border-radius: 5px;
   border: none;
+  cursor: pointer;
 }
