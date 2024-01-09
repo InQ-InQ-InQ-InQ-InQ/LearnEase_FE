@@ -1,95 +1,104 @@
-.viewport{
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    background-color: #e9e9e9;
-    height: 740px;
+.viewport {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  background-color: #e9e9e9;
+  height: 740px;
 }
-.container{
-    margin-left: 400px;
-    width: 85%;
-    margin-top: 30px;
+.container {
+  margin-left: 400px;
+  width: 85%;
+  margin-top: 30px;
 }
-.text1{
-    font-size: large;
-    font-weight: 600;
+.text1 {
+  font-size: large;
+  font-weight: 600;
 }
-.text2{
-    font-size: medium;
-    font-weight: 600;
+.text2 {
+  font-size: medium;
+  font-weight: 600;
 }
-.wrapping{
-    margin-top: 40px;
+.wrapping {
+  margin-top: 40px;
 }
-.box1{
-    width: 85%;
-    height: 40px;
+.box1 {
+  width: 85%;
+  height: 40px;
 }
-.input1{
-    width: 70%;
-    height: 100%;
-    padding-left: 10px;
+.input1 {
+  width: 70%;
+  height: 100%;
+  padding-left: 10px;
+  border-radius: 5px;
+  border: 1px solid #86888a;
 }
-.box0{
-    width: 60%;
-    height: 100px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 35px;
+.box0 {
+  width: 60%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 35px;
 }
-.box2{
-    width: 40%;
-    height: 100%;
+.box2 {
+  width: 40%;
+  height: 100%;
 }
-.input2{
-    width: 100%;
-    height: 35px;
-    padding-left: 10px;
+.input2 {
+  width: 100%;
+  height: 35px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  border: 1px solid #86888a;
 }
-.addbtn{
-    width: 20%;
-    height: 100%;
-    margin-left: 20px;
-    background-color: lightgray;
-    border: none;
-    font-weight: 600;
-    font-size: medium;
+.addbtn {
+  width: 20%;
+  height: 100%;
+  margin-left: 20px;
+  background-color: #834741;
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: medium;
+  color: white;
 }
-.box3{
-    width: 85%;
-    height: auto;
-    margin-top: 35px;
+.box3 {
+  width: 85%;
+  height: auto;
+  margin-top: 35px;
 }
-.wrap{
-    width: 100%;
-    height: 45px;
+.wrap {
+  width: 100%;
+  height: 45px;
 }
-.datebtn{
-    width: 10%;
-    height: 100%;
-    margin-right: 35px;
-    border: none;
-    background-color: white;
-    font-weight: 600;
-    font-size: medium;
-    border-radius: 5px;
+.datebtn {
+  width: 10%;
+  height: 100%;
+  margin-right: 35px;
+  border: none;
+  background-color: white;
+  font-weight: 500;
+  font-size: medium;
+  border-radius: 5px;
 }
-.submitbtn{
-    width: 30%;
-    height: 50px;
-    background-color: lightgray;
-    border: none;
-    font-weight: 600;
-    font-size: medium;
+.submitbtn {
+  width: 30%;
+  height: 50px;
+  background-color: #834741;
+  border: none;
+  font-weight: 600;
+  font-size: medium;
+  color: white;
+  border-radius: 5px;
 }
-.box4{
-    width: 85%;
-    height: 45px;
-    text-align: center;
-    margin-top: 70px;
+.box4 {
+  width: 85%;
+  height: 45px;
+  text-align: center;
+  margin-top: 70px;
 }
-.btnpressed{
-    background-color: lightgray;
+.btnpressed {
+  background-color: #f3d1cd;
 }
