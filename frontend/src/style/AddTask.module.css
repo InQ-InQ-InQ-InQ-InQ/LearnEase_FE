@@ -1,35 +1,46 @@
 .screen{
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
+    bottom: 0;
     background-color: rgba(17, 17, 17, 0.4);
     z-index: 5;
     display: flex;
     justify-content: center;
 }
-
-.addtaskscreen{
-    width: 35%;
+.header{
+    width: auto;
+    height: 13%;
+    color: white;
+    font-size: larger;
+    font-weight: 600;
+    background-color: #834741;
+    text-align: center;
+}
+.wrapping{
+    width: 80%;
+    height: 350px;
+    margin-left: 50px;
+    position: relative;
+    margin-top: 50px;
+}
+.editscreen{
+    width: 30%;
     height: 50%;
     background-color: white;
     position: fixed;
-    top: 10%;
+    top: 20%;
     border-radius: 10px;
-    border: 1px solid black;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    box-shadow: 15 20;
+    
+    
 
 }
-.wrap{
-    margin-top: 70px;
-    height: 70%;
-}
+
 .box{
-    display: flex;
-    flex-direction: row;
+   
     width: 100%;
     align-items: center;
     margin-bottom: 20px;
@@ -37,20 +48,32 @@
 }
 
 .text{
-    font-size: large;
+    font-size: medium;
     font-weight: bolder;
-    padding-left: 70px;
+    
 }
-.mailwrap, .taskwrap{
+.nicknamewrap{
     font-size: large;
-    font-weight: 600;
-    border-bottom: 1px solid black;
-    width: 50%;
-    height: 30px;
-    margin-right: 50px;
+    border: 1px solid #834741;
+    width: 100%;
+    height: 35px;
+    border-radius: 5px;
+    padding-left: 10px;
+    
 }
 
-.savebtn{
+.passwordbtn{
+    width: 40%;
+    height: 50px;
+    font-size: medium;
+    margin-right: 50px;
+    background-color: #834741;
+    color: white;
+    font-size: medium;
+    font-weight: 600;
+    border-radius: 5px;
+}
+.passwordbtn1{
     height: 50px;
     font-size: medium;
     width: 50%;
@@ -59,11 +82,32 @@
     position: absolute;
     right: 0;
     margin: 10px;
-    cursor: pointer;
-}
-.inputtxt{
-    outline: none;
     border: none;
+    background-color: #834741;
+    color: white;
     font-size: large;
-    width: 60%;
+    font-weight: 600;
+}
+.inputpw{
+    font-size: large;
+    width: 100%;
+    height: 35px;
+    border: 1px solid #834741;
+    border-radius: 5px;
+
+}
+.inputpw:hover{
+    border: 1px solid #834741;
+}
+.okbtn{
+    width: 40%;
+    height: 50px;
+    border-radius: 7px;
+    background-color: #834741;
+    color: white;
+    font-size: medium;
+    font-weight: 600;
+    position: absolute;
+    bottom: 0;
+    margin-left: 130px;
 }

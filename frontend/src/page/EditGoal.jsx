@@ -21,22 +21,22 @@ function EditGoal() {
               </div>
               <div className={styles.wrapping}>
                 <div className={styles.box}>
-                  <p className={styles.text}>현재 비밀번호</p>
-                  <div className={styles.nicknamewrap}>*******</div>
+                  <p className={styles.text}>자격증 명</p>
+                  <input type="text" className={styles.inputpw} />
                 </div>
                 <div className={styles.box}>
-                  <p className={styles.text}>New Password</p>
+                  <p className={styles.text}>시작일</p>
 
-                  <input type="password" className={styles.inputpw} />
+                  <input type="date" className={styles.inputpw} />
 
                 </div>
                 <div className={styles.box}>
-                  <p className={styles.text}>Password Check</p>
+                  <p className={styles.text}>종료일</p>
 
-                  <input type="password" className={styles.inputpw} />
+                  <input type="date" className={styles.inputpw} />
 
                 </div>
-                <button type="button" className={styles.okbtn}>비밀번호 변경</button>
+                <button type="button" className={styles.okbtn}>자격증 등록하기</button>
               </div>
             </div>
           </div>

@@ -39,6 +39,7 @@ const Weekly = () => {
             </button>
           </div>
           <div className={styles.mainwrap}>
+
             {days.map((day) => (
               <div key={day.name} className={styles.day}>
                 <div className={styles.dayhead}>{day.name}</div>
@@ -52,6 +53,7 @@ const Weekly = () => {
                 </div>
               </div>
             ))}
+
           </div>
         </div>
       </div>

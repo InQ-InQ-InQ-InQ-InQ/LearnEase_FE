@@ -51,35 +51,35 @@ function AddTask() {
   return (
     <div>
       {modalVisible && (
-        <div className={styles.screen}>
-          <div className={styles.addtaskscreen}>
+      <div className={styles.screen}>
+        <div className={styles.editscreen}>
+          <div className={styles.header}>
+            새로운 할 일 등록하기
             <button type="button" className={styles.out} onClick={closeModal}>
               X
             </button>
-            <div className={styles.wrap}>
-              <div className={styles.addtaskscreen}>
-                <button type="button" className={styles.out} onClick={closeModal}>
-                  X
-                </button>
-                <div className={styles.wrap}>
-                  <div className={styles.box}>
-                    <p className={styles.text}>Category</p>
-                    <div className={styles.taskwrap}>
-                      <input type="text" className={styles.inputtxt} onChange={handleCategoryChange} />
-                    </div>
-                  </div>
-                  <div className={styles.box}>
-                    <p className={styles.text}>Task</p>
-                    <div className={styles.taskwrap}>
-                      <input type="text" className={styles.inputtxt} onChange={handleTaskChange} />
-                    </div>
-                  </div>
-                  <button type="button" className={styles.savebtn} onClick={saveTask}>저장</button>
-                </div>
-              </div>
+          </div>
+          <div className={styles.wrapping}>
+            <div className={styles.box}>
+              <p className={styles.text}>할 일</p>
+              <input type="text" className={styles.nicknamewrap} onChange={handleTaskChange} />
             </div>
+            <div className={styles.box}>
+              <p className={styles.text}>카테고리</p>
+
+              <input type="text" className={styles.inputpw} onChange={handleCategoryChange} />
+
+            </div>
+            <div className={styles.box}>
+              <p className={styles.text}>일정</p>
+
+              <input type="date" className={styles.inputpw} />
+
+            </div>
+            <input type="submit" className={styles.okbtn} onClick={saveTask} value="일정 등록하기" />
           </div>
         </div>
+      </div>
       )}
     </div>
   );
