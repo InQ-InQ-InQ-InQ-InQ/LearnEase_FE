@@ -37,9 +37,9 @@ function Header() {
     <div className={styles.miniinfo}>
       <div className={styles.headwrap}>
         <p className={styles.nickname}>
-          {userInfo ? userInfo.nickname : 'Guest'}
+          {userInfo && userInfo.nickname ? userInfo.nickname : 'Guest'}
         </p>
-        <button type="button" className={styles.logout} onClick={handleLogout}>로그아웃</button>
+        <button type="button" className={styles.pText2} onClick={handleLogout}>Logout</button>
       </div>
     </div>
   );
