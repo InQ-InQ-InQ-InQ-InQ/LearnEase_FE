@@ -86,12 +86,12 @@
 .okbtn{
     width: 40%;
     height: 50px;
-    border-radius: 7px;
+    /border-radius: 7px;
     background-color: #834741;
     color: white;
     font-size: medium;
     font-weight: 600;
     position: absolute;
     bottom: 0;
-    margin-left: 130px;
+    transform: translateX(-50%);
 }
