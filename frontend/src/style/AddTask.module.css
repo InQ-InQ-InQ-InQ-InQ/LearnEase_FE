@@ -13,6 +13,7 @@
 .header{
     width: auto;
     height: 13%;
+    border-radius: 10px 10px 0 0;
     color: white;
     font-size: larger;
     font-weight: 600;
@@ -33,7 +34,7 @@
     position: fixed;
     top: 10%;
     border-radius: 10px;
-    border: 1px solid black;
+    border: none;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -86,7 +87,8 @@
 .okbtn{
     width: 40%;
     height: 50px;
-    /border-radius: 7px;
+    border-radius: 7px;
+    border: none;
     background-color: #834741;
     color: white;
     font-size: medium;
