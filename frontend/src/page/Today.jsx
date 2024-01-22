@@ -51,7 +51,6 @@ function Today() {
               <div className={styles.top}>
                 <p className={styles.toptext}>Category</p>
                 <p className={styles.toptext}>Task</p>
-                <p className={styles.toptext}>Edit / Delete</p>
               </div>
               {/* 정보 가져오기 */}
               {tasks.map((task) => (
@@ -59,8 +58,6 @@ function Today() {
                   <input type="checkbox" className={styles.check} />
                   <div className={styles.value}>{task.category}</div>
                   <div className={styles.value}>{task.content}</div>
-                  <div><input type="button" className={styles.editbtn} value="수정" /></div>
-                  <div><input type="button" className={styles.removebtn} value="삭제" onClick={deleteTask} /></div>
                 </div>
               ))}
             </div>
