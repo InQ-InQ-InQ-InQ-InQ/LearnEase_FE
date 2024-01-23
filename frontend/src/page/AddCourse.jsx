@@ -6,23 +6,32 @@ import styles from '../style/AddCourse.module.css';
 const AddCourse = ({ onClose, onAddCourse }) => {
   const accessToken = sessionStorage.getItem('accessToken');
   const [courseName, setCourseName] = useState('');
-  const [chapters, setChapters] = useState([{ title: 'Chapter 1', subTitle: '' }]);
+  const [chapters, setChapters] = useState([
+    { title: 'Chapter 1', subTitle: '' },
+  ]);
 
   const addChapterHandler = () => {
-    const newChapter = { title: `Chapter ${chapters.length + 1}`, subTitle: '' };
+    const newChapter = {
+      title: `Chapter ${chapters.length + 1}`,
+      subTitle: '',
+    };
     setChapters([...chapters, newChapter]);
   };
 
   const saveCourseHandler = async () => {
     try {
-      const response = await axios.post('/api/goals', {
-        courseName,
-        chapters,
-      }, {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
+      const response = await axios.post(
+        '/api/goals',
+        {
+          courseName,
+          chapters,
         },
-      });
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        },
+      );
       onAddCourse(response.data);
       onClose();
     } catch (error) {
@@ -48,9 +57,12 @@ const AddCourse = ({ onClose, onAddCourse }) => {
   return (
     <div className={styles.screen}>
       <div className={styles.addscreen}>
-        <button type="button" className={styles.out} onClick={outHandler}>X</button>
+        <button type="button" className={styles.out} onClick={outHandler}>
+          X
+        </button>
         <div className={styles.box}>
-          <p className={styles.text}>도서 및 강의명</p>
+          <p className={styles.text1}>새 강의 등록하기</p>
+          <p className={styles.text2}>강의명</p>
           <input
             type="text"
             className={styles.input1}
@@ -80,9 +92,23 @@ const AddCourse = ({ onClose, onAddCourse }) => {
                 </button>
               </div>
             ))}
-            <button type="button" className={styles.addChapterBtn} onClick={addChapterHandler}>+</button>
           </div>
-          <button type="button" className={styles.submitbtn} onClick={saveCourseHandler}>챕터 추가하기</button>
+          <div className={styles.btnContainer}>
+            <button
+              type="button"
+              className={styles.submitbtnWrapper}
+              onClick={addChapterHandler}
+            >
+              챕터 추가
+            </button>
+            <button
+              type="button"
+              className={styles.submitbtn}
+              onClick={saveCourseHandler}
+            >
+              강의 등록하기
+            </button>
+          </div>
         </div>
       </div>
     </div>
