@@ -1,14 +1,17 @@
 .frame{
-    width: 20%;
+    width: 40%;
     height: 1000px;
     position:  fixed;
     top: 0;
     left: 0;
     display: flex;
-    
+}
+a {
+    text-decoration: none;
+    color: gray;
 }
 .wrap{
-    margin: 20px;
+    margin: 40px;
 }
 .head{
     margin-left: 20px;
@@ -20,17 +23,14 @@
     margin-top: 30px;
     height: 20px;
     border: none;
-}
-.text{
+  }
+  
+  .text {
     font-size: x-large;
     font-weight: 700;
-}
-.navigation{
-    margin-left: 30px;
-    height: 300px;
-    margin-top: 30px;
-}
-.menu{
+  }
+  
+  .menu {
     color: gray;
     font-size: large;
     font-weight: 600;
@@ -38,5 +38,9 @@
     display: flex;
     flex-direction: row;
     margin-bottom: 30px;
+    align-items: center;
+    text-align: center;
 }
-
+.textRed {
+  color: red;
+}

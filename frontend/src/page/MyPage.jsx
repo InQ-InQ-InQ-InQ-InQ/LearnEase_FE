@@ -4,11 +4,13 @@ import SideBar from '../component/SideBar';
 import styles from '../style/MyPage.module.css';
 import EditAccount from './EditAccount';
 import Header from '../component/Header';
+import EditGoal from './EditGoal';
 
 function MyPage() {
   const accessToken = sessionStorage.getItem('accessToken');
   const [userInfo, setUserInfo] = useState('');
   const [editAccount, setEditAccount] = useState(false);
+  const [editGoal, setEditGoal] = useState(false);
   const [goals, setGoals] = useState([
     { id: 1, name: '정보처리기사실기', date: '23/10/15~23/12/15' },
     { id: 2, name: '정보처리기사필기', date: '23/10/15~23/12/15' },
@@ -33,6 +35,9 @@ function MyPage() {
 
   const editHandler = () => {
     setEditAccount(true);
+  };
+  const editgoalHandler = () => {
+    setEditGoal(true);
   };
 
   const onRemove = async (id) => {
@@ -78,7 +83,7 @@ function MyPage() {
                 <p>{goal.date}</p>
                 <div className={styles.btnwrap}>
                   <button type="button" className={styles.deletebtn} onClick={() => onRemove(goal.id)}>Delete</button>
-                  <button type="button" className={styles.goaleditbtn}>Edit</button>
+                  <button type="button" className={styles.goaleditbtn} onClick={editgoalHandler}>Edit</button>
                 </div>
               </div>
             ))}
@@ -86,6 +91,7 @@ function MyPage() {
         </div>
       </div>
       {editAccount && <EditAccount />}
+      {editGoal && <EditGoal />}
     </div>
   );
 }

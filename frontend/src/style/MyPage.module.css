@@ -3,7 +3,6 @@
     overflow: hidden;
     display: flex;
     flex-direction: row;
-    background-color: #e9e9e9;
 }
 .mainprofile{
     width: 85%;
@@ -22,7 +21,7 @@
     border-radius: 5px;
     align-items: center;
     margin-top: 30px;
-    box-shadow: 0 0 10px -7px;
+    
 }
 .userinfo{
     margin-left: 30px;
@@ -39,7 +38,7 @@
     margin-top: -10px;
 }
 .profileeditbtn{
-    background-color: lightgray;
+    background-color: #834741;
     color: white;
     height: 50px;
     position: absolute;
@@ -48,6 +47,7 @@
     width: 15%;
     border-radius: 5px;
     font-size: medium;
+    font-weight: 600;
     border: none;
     cursor: pointer;
 }
@@ -57,7 +57,7 @@
     height: 500px;
     background-color: white;
     border-radius: 5px;
-    box-shadow: 0 0 10px -7px;
+    
 }
 .text,.text1{
     font-size:x-large ;
@@ -75,7 +75,7 @@
     margin-top: -40px;
 }
 .goalbox{
-    background-color: lightgray;
+    border: 1px solid lightgray;
     width: 40%;
     height: 150px;
     margin: 30px;
@@ -93,6 +93,8 @@
     border-radius: 5px;
     font-size: medium;
     cursor: pointer;
+    background-color: #F3D1CD;
+    font-weight: 600;
 }
 .goaleditbtn{
     position: absolute;
