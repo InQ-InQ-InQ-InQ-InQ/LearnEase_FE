@@ -53,30 +53,28 @@ function AddTask() {
       {modalVisible && (
         <div className={styles.screen}>
           <div className={styles.addtaskscreen}>
-            <button type="button" className={styles.out} onClick={closeModal}>
-              X
-            </button>
-            <div className={styles.wrap}>
-              <div className={styles.addtaskscreen}>
-                <button type="button" className={styles.out} onClick={closeModal}>
-                  X
-                </button>
-                <div className={styles.wrap}>
-                  <div className={styles.box}>
-                    <p className={styles.text}>Category</p>
-                    <div className={styles.taskwrap}>
-                      <input type="text" className={styles.inputtxt} onChange={handleCategoryChange} />
-                    </div>
-                  </div>
-                  <div className={styles.box}>
-                    <p className={styles.text}>Task</p>
-                    <div className={styles.taskwrap}>
-                      <input type="text" className={styles.inputtxt} onChange={handleTaskChange} />
-                    </div>
-                  </div>
-                  <button type="button" className={styles.savebtn} onClick={saveTask}>저장</button>
-                </div>
+            <div className={styles.header}>
+              <span className={styles.new}>Add New Task</span>
+              <button type="button" className={styles.out} onClick={closeModal}>
+                X
+              </button>
+            </div>
+            <div className={styles.wrapping}>
+              <div className={styles.box}>
+                <p className={styles.text}>할 일</p>
+                <input type="text" className={styles.nicknamewrap} placeholder="일정을 입력해주세요" value={task} onChange={handleTaskChange} />
               </div>
+              <div className={styles.box}>
+                <p className={styles.text}>카테고리</p>
+                <input type="text" className={styles.nicknamewrap} placeholder="카테고리를 입력해주세요" value={category} onChange={handleCategoryChange} />
+              </div>
+              <div className={styles.box}>
+                <p className={styles.text}>일정</p>
+                <input type="text" className={styles.nicknamewrap} placeholder="일정을 입력해주세요" />
+              </div>
+              <button type="button" className={styles.okbtn} onClick={saveTask}>
+                일정 등록하기
+              </button>
             </div>
           </div>
         </div>

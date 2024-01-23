@@ -1,14 +1,17 @@
 .frame{
-    width: 20%;
+    width: 40%;
     height: 1000px;
     position:  fixed;
     top: 0;
     left: 0;
     display: flex;
-    
+}
+a {
+    text-decoration: none;
+    color: gray;
 }
 .wrap{
-    margin: 20px;
+    margin: 40px;
 }
 .head{
     margin-left: 20px;
@@ -38,5 +41,10 @@
     display: flex;
     flex-direction: row;
     margin-bottom: 30px;
+    align-items: center;
+    text-align: center;
+}
+.textRed {
+  color: red;
 }
 
