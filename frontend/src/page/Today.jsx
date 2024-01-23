@@ -21,6 +21,16 @@ const Remove = styled.div`
   }
 `;
 
+const Value1 = styled.div`
+  width: 100px;
+  text-align: left;
+`;
+
+const Value2 = styled.div`
+  width: 250px;
+  text-align: left;
+`;
+
 function Today() {
   const [addTask, setAddTask] = useState(false);
   const [tasks] = useState([
@@ -54,8 +64,8 @@ function Today() {
             {tasks.map((task) => (
               <div key={task.id} className={styles.taskwrap} style={{ position: 'relative' }}>
                 <input type="checkbox" className={styles.check} />
-                <div className={styles.value}>{task.category}</div>
-                <div className={styles.value}>{task.content}</div>
+                <Value1 className={styles.value}>{task.category}</Value1>
+                <Value2 className={styles.value}>{task.content}</Value2>
                 <Remove>
                   <MdDelete />
                 </Remove>
