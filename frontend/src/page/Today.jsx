@@ -19,6 +19,7 @@ const Remove = styled.div`
   &:hover {
     color: #ff6b6b;
   }
+  margin-right: 40px;
 `;
 
 const Value1 = styled.div`
