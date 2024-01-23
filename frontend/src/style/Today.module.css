@@ -8,23 +8,25 @@
 .container{
     width: 85%;
     height: 900px;
-   margin-left: 400px;
+    margin-left: 400px;
 }
 .midwrap{
     position: relative;
     width: 85%;
     margin-bottom: 25px;
     height: 50px;
-    margin-top: -30px;
+    color: pink;
 }
 .addbtn{
     position: absolute;
     right: 0;
     height: 50px;
-    width: 20%;
+    width: 15%;
+    font-weight: 600;
     color: white;
-    background-color: lightgray;
+    background-color: #834741;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
 }
 .mainwrap{
@@ -47,27 +49,51 @@
     font-weight: 600;
     color: gray;
     align-items: center;
-    text-align: center;
 }
 .toptext{
-    margin-left: 210px;
+    margin-left: 150px;
 }
 .taskwrap{
     display: flex;
     flex-direction: row;
-    width: 95%;
+    width: 100%;
     height: 50px;
     border-bottom: 1px solid #e9e9e9;
+    align-items: center;
+    text-align: center;
 }
 .check{
+    width: 18px;
+    height: 18px;
+    margin-top: 18px;
     margin-right: 80px;
     margin-left: 50px;
 }
 .value{
-    margin-right: 80px;
     font-size: medium;
     font-weight: 600;
-    color: gray;
+    color: black;
     margin-top: 15px;
-    margin-left: 50px;
+    margin-right: 50px;
+    text-align: center;
+}
+.removebtn{
+    width: 80%;
+    height: 80%;
+    margin-left: 20px;
+    background-color: lightgray;
+    border: none;
+    font-size: medium;
+}
+.editbtn{
+    width: 80%;
+    height: 80%;
+    margin-left: 20px;
+    background-color: lightgray;
+    border: none;
+    font-size: medium;
+}
+.buttonsContainer {
+  display: flex;
+  gap: 8px;
 }

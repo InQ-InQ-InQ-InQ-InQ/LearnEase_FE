@@ -10,11 +10,20 @@
     flex-direction: row;
     margin-top: 20px;
 }
-.logout{
-    margin-left: 20px;
-    cursor: pointer;
-}
 .nickname{
     font-size: large;
     font-weight: 600;
+    margin-right: 25px;
+}
+.pText2 {
+  margin-right: 51px;
+  color: black;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border: none;
+  cursor: pointer;
+  background-color: #e9e9e9;
 }

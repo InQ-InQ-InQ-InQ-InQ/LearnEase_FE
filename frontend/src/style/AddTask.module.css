@@ -13,17 +13,13 @@
 .header{
     width: auto;
     height: 13%;
+    border-radius: 10px 10px 0 0;
     color: white;
     font-size: larger;
     font-weight: 600;
     background-color: #834741;
     text-align: center;
-    padding-top: 1px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-}
-.screen .editscreen .header p{
-    margin-top: 15px;
+    align-items: center;
 }
 .wrapping{
     width: 80%;
@@ -32,21 +28,20 @@
     position: relative;
     margin-top: 50px;
 }
-.editscreen{
+.addtaskscreen{
     width: 30%;
-    height: 50%;
+    height: 65%;
     background-color: white;
     position: fixed;
-    top: 20%;
+    top: 15%;
     border-radius: 10px;
-    box-shadow: 15 20;
-    
-    
-
+    border: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .box{
-   
     width: 100%;
     align-items: center;
     margin-bottom: 20px;
@@ -56,7 +51,6 @@
 .text{
     font-size: medium;
     font-weight: bolder;
-    
 }
 .nicknamewrap{
     font-size: large;
@@ -65,24 +59,6 @@
     height: 35px;
     border-radius: 5px;
     padding-left: 10px;
-    
-}
-
-.passwordbtn{
-    width: 40%;
-    height: 50px;
-    font-size: medium;
-    margin-right: 50px;
-    background-color: #834741;
-    color: white;
-    font-size: medium;
-    font-weight: 600;
-    border-radius: 5px;
-}
-.passwordbtn1{
-    height: 50px;
-    font-size: medium;
-    width: 50%;
 }
 .out{
     position: absolute;
@@ -93,7 +69,6 @@
     color: white;
     font-size: large;
     font-weight: 600;
-    margin-top: -45px;
 }
 .inputpw{
     font-size: large;
@@ -110,12 +85,20 @@
     width: 40%;
     height: 50px;
     border-radius: 7px;
+    border: none;
     background-color: #834741;
     color: white;
     font-size: medium;
     font-weight: 600;
     position: absolute;
     bottom: 0;
-    margin-left: 130px;
-    margin-bottom: 15px;
+    transform: translateX(-50%);
 }
+.new {
+  position: absolute;
+  font-size: 20px; /* 예시로 크기를 조절하십시오 */
+  font-weight: bold;
+  margin-top: 18px; /* 원하는 여백 조절 */
+  transform: translateX(-50%);
+}
+

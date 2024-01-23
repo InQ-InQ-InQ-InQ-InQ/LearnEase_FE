@@ -1,14 +1,24 @@
-.sidebar {
-    transform: translateX(0);
-  }
-  
-  .frame {
-    width: 300px;
-    background-color: #f8f8f8;
-    height: auto;
-  }
-  
-  .arrowicon {
+.frame{
+    width: 40%;
+    height: 1000px;
+    position:  fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+}
+a {
+    text-decoration: none;
+    color: gray;
+}
+.wrap{
+    margin: 40px;
+}
+.head{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+}
+.arrowicon{
     margin-left: 100px;
     margin-top: 30px;
     height: 20px;
@@ -28,6 +38,9 @@
     display: flex;
     flex-direction: row;
     margin-bottom: 30px;
-    margin-left: 40px;
-  }
-  
+    align-items: center;
+    text-align: center;
+}
+.textRed {
+  color: red;
+}
