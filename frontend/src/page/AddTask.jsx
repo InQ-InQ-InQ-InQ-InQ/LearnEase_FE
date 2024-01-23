@@ -76,7 +76,6 @@ function AddTask() {
                 일정 등록하기
               </button>
             </div>
-            <input type="submit" className={styles.okbtn} onClick={saveTask} value="일정 등록하기" />
           </div>
         </div>
       )}
