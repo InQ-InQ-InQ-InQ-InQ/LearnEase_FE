@@ -54,7 +54,7 @@ function AddTask() {
       <div className={styles.screen}>
         <div className={styles.editscreen}>
           <div className={styles.header}>
-            새로운 할 일 등록하기
+            <p>새로운 할 일 등록하기</p>
             <button type="button" className={styles.out} onClick={closeModal}>
               X
             </button>

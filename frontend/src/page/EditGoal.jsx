@@ -14,7 +14,7 @@ function EditGoal() {
           <div className={styles.screen}>
             <div className={styles.editscreen}>
               <div className={styles.header}>
-                자격증 수정
+                <p>자격증 수정</p>
                 <button type="button" className={styles.out} onClick={closeModal}>
                   X
                 </button>

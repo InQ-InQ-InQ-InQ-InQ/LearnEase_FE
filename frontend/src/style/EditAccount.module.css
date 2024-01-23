@@ -10,6 +10,7 @@
     display: flex;
     justify-content: center;
 }
+
 .header{
     width: auto;
     height: 13%;
@@ -18,10 +19,16 @@
     font-weight: 600;
     background-color: #834741;
     text-align: center;
+    padding-top: 1px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.screen .editscreen .header p{
+    margin-top: 15px;
 }
 .wrapping{
     width: 80%;
-    height: 350px;
+    height: 50%;
     margin-left: 50px;
     position: relative;
     margin-top: 50px;
@@ -40,11 +47,12 @@
 }
 
 .box{
-   
+   position: relative;
     width: 100%;
     align-items: center;
     margin-bottom: 20px;
     justify-content: space-between;
+    
 }
 
 .text{
@@ -64,7 +72,7 @@
 
 .passwordbtn{
     width: 40%;
-    height: 50px;
+    height: 40px;
     font-size: medium;
     margin-right: 50px;
     background-color: #834741;
@@ -73,20 +81,17 @@
     font-weight: 600;
     border-radius: 5px;
 }
-.passwordbtn1{
-    height: 50px;
-    font-size: medium;
-    width: 50%;
-}
+
 .out{
     position: absolute;
     right: 0;
-    margin: 10px;
+   margin-top: -45px;
     border: none;
-    background-color: #834741;
+  background-color: #834741;
     color: white;
     font-size: large;
     font-weight: 600;
+    margin-right: 5px;
 }
 .inputpw{
     font-size: large;
@@ -101,13 +106,18 @@
 }
 .okbtn{
     width: 40%;
-    height: 50px;
+    height: 20%;
     border-radius: 7px;
     background-color: #834741;
     color: white;
     font-size: medium;
     font-weight: 600;
-    position: absolute;
+    
     bottom: 0;
-    margin-left: 130px;
+   
+   margin-left: 30%;
+}
+.wrappp{
+   height: 100%;
+    width: 100%;
 }

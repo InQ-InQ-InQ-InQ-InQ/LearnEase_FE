@@ -18,6 +18,12 @@
     font-weight: 600;
     background-color: #834741;
     text-align: center;
+    padding-top: 1px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.screen .editscreen .header p{
+    margin-top: 15px;
 }
 .wrapping{
     width: 80%;
@@ -87,6 +93,7 @@
     color: white;
     font-size: large;
     font-weight: 600;
+    margin-top: -45px;
 }
 .inputpw{
     font-size: large;
@@ -110,4 +117,5 @@
     position: absolute;
     bottom: 0;
     margin-left: 130px;
+    margin-bottom: 15px;
 }

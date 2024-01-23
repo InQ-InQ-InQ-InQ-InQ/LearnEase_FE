@@ -1,22 +1,26 @@
-.frame{
+.sidebar {
+    transform: translateX(0);
+  }
+  
+  .frame {
     width: 300px;
-    background-color: #F8F8F8;
+    background-color: #f8f8f8;
     height: auto;
-}
-
-
-.arrowicon{
+  }
+  
+  .arrowicon {
     margin-left: 100px;
     margin-top: 30px;
     height: 20px;
     border: none;
-}
-.text{
+  }
+  
+  .text {
     font-size: x-large;
     font-weight: 700;
-}
-
-.menu{
+  }
+  
+  .menu {
     color: gray;
     font-size: large;
     font-weight: 600;
@@ -25,5 +29,5 @@
     flex-direction: row;
     margin-bottom: 30px;
     margin-left: 40px;
-}
-
+  }
+  
