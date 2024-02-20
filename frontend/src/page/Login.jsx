@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styles from '../style/Login.module.css';
 import sample from '../img/sample.png';
@@ -8,7 +7,6 @@ function Login() {
   const [email1, setEmail1] = useState('');
   const [password1, setPassword1] = useState('');
   const [setIsLoggedIn] = useState(false);
-  const navigate = useNavigate();
 
   const setToken = (accessToken) => {
     sessionStorage.setItem('accessToken', accessToken);
