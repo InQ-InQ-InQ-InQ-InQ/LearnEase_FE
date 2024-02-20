@@ -5,8 +5,8 @@ import styles from '../style/Login.module.css';
 import sample from '../img/sample.png';
 
 function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email1, setEmail1] = useState('');
+  const [password1, setPassword1] = useState('');
   const [setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
@@ -18,8 +18,8 @@ function Login() {
   const handleLogin = async () => {
     try {
       const account = {
-        email: email,
-        password: password,
+        email: email1,
+        password: password1,
       };
 
       const response = await axios.post('44.207.63.226:8080/login', account);
@@ -50,15 +50,15 @@ function Login() {
           </div>
           <div className={styles.main}>
             <input
-              type="email"
+              type="email1"
               className={styles.input}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setEmail1(e.target.value)}
               placeholder="Enter Your Email"
             />
             <input
-              type="password"
+              type="password1"
               className={styles.input}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setPassword1(e.target.value)}
               placeholder="Enter Your Password"
             />
           </div>
