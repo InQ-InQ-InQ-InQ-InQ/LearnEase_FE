@@ -4,8 +4,8 @@ import styles from '../style/Login.module.css';
 import sample from '../img/sample.png';
 
 function Login() {
-  const [email1, setEmail1] = useState('');
-  const [password1, setPassword1] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [setIsLoggedIn] = useState(false);
 
   const setToken = (accessToken) => {
@@ -15,8 +15,8 @@ function Login() {
 
   const handleLogin = async () => {
     const account = {
-      email: email1,
-      password: password1,
+      email,
+      password,
     };
 
     try {
@@ -28,7 +28,7 @@ function Login() {
 
       const { USER } = response.data;
 
-      sessionStorage.setItem('email1', USER);
+      sessionStorage.setItem('email', USER);
       setToken('USER');
       alert('로그인 성공');
     } catch (error) {
@@ -53,15 +53,15 @@ function Login() {
           </div>
           <div className={styles.main}>
             <input
-              type="email1"
+              type="email"
               className={styles.input}
-              onChange={(e) => setEmail1(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter Your Email"
             />
             <input
-              type="password1"
+              type="password"
               className={styles.input}
-              onChange={(e) => setPassword1(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter Your Password"
             />
           </div>
