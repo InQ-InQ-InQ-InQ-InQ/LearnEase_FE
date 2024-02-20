@@ -20,11 +20,7 @@ function Login() {
     };
 
     try {
-      const response = await axios.post('http://44.207.63.226:8080/login', account, {
-        headers: {
-          Authorization: 'USER',
-        },
-      });
+      const response = await axios.post('http://44.207.63.226:8080/login', account);
 
       const { USER } = response.data;
 
