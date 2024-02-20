@@ -22,7 +22,7 @@ function Login() {
         loginPassword: password,
       };
 
-      const response = await axios.post('/api/login/auth', account);
+      const response = await axios.post('44.207.63.226:8080/login', account);
       const { accessToken, refreshToken } = response.data;
       setToken(accessToken);
       sessionStorage.setItem('refreshToken', refreshToken);
