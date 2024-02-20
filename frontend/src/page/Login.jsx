@@ -25,7 +25,7 @@ function Login() {
       const response = await axios.post('44.207.63.226:8080/login', account);
       const { USER } = response.data;
       sessionStorage.setItem('userId', USER);
-      sessionStorage.setItem('token', 'USER');
+      setToken('USER');
       alert('로그인 성공');
       navigate('/api/home');
     } catch (error) {
