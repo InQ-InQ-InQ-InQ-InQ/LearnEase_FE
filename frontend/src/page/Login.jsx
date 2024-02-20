@@ -22,12 +22,16 @@ function Login() {
         password: password1,
       };
 
-      const response = await axios.post('44.207.63.226:8080/login', account);
+      const response = await axios.post('http://44.207.63.226:8080/login', account, {
+        headers: {
+          Authorization: 'USER',
+        },
+      });
+
       const { USER } = response.data;
       sessionStorage.setItem('userId', USER);
       setToken('USER');
       alert('로그인 성공');
-      navigate('/api/home');
     } catch (error) {
       alert(error.response.data.errorMessage);
     }
