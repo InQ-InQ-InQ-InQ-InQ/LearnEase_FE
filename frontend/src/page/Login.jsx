@@ -14,12 +14,12 @@ function Login() {
   };
 
   const handleLogin = async () => {
-    try {
-      const account = {
-        email: email1,
-        password: password1,
-      };
+    const account = {
+      email: email1,
+      password: password1,
+    };
 
+    try {
       const response = await axios.post('http://44.207.63.226:8080/login', account, {
         headers: {
           Authorization: 'USER',
@@ -27,7 +27,8 @@ function Login() {
       });
 
       const { USER } = response.data;
-      sessionStorage.setItem('userId', USER);
+
+      sessionStorage.setItem('email1', USER);
       setToken('USER');
       alert('로그인 성공');
     } catch (error) {
