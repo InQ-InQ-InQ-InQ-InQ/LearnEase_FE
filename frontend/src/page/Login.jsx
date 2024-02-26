@@ -16,7 +16,7 @@ function Login() {
   const handleLogin = async () => {
     const account = {
       email: email,
-      password: password,
+      password,
     };
     try {
       const response = await axios.post('http://44.207.63.226:8080/login', account);
