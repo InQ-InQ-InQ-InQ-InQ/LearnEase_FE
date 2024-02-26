@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styles from '../style/Login.module.css';
 import sample from '../img/sample.png';
@@ -8,7 +7,6 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [setIsLoggedIn] = useState(false);
-  const navigate = useNavigate();
 
   const setToken = (accessToken) => {
     sessionStorage.setItem('accessToken', accessToken);
@@ -16,18 +14,18 @@ function Login() {
   };
 
   const handleLogin = async () => {
+    const account = {
+      email,
+      password,
+    };
     try {
-      const account = {
-        loginEmail: email,
-        loginPassword: password,
-      };
+      const response = await axios.post('http://44.207.63.226:8080/login', account);
 
-      const response = await axios.post('/api/login/auth', account);
-      const { accessToken, refreshToken } = response.data;
-      setToken(accessToken);
-      sessionStorage.setItem('refreshToken', refreshToken);
+      const { USER } = response.data;
+
+      sessionStorage.setItem('email', USER);
+      setToken('USER');
       alert('로그인 성공');
-      navigate('/api/home');
     } catch (error) {
       alert(error.response.data.errorMessage);
     }
