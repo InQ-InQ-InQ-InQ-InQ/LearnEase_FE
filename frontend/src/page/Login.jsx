@@ -15,7 +15,7 @@ function Login() {
 
   const handleLogin = async () => {
     const account = {
-      email: email,
+      email,
       password,
     };
     try {
